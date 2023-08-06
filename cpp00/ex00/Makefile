@@ -15,3 +15,5 @@ clean:
 
 fclean: clean
 	rm -f $(NM)
+
+re: fclean all

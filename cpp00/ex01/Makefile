@@ -9,7 +9,12 @@ OBJ = ${SRC:.cpp=.o}
 all:${NAME}
 
 ${NAME}: ${OBJ}
-	c++ ${CPPFLAGS} ${OBJ} -o ${NAME}
+	@c++ ${CPPFLAGS} ${OBJ} -o ${NAME}
 
-fclean:
-	rm -f ${NAME} 
+clean:
+	@rm -f ${OBJ}
+
+fclean: clean
+	@rm -f ${NAME}
+
+re: fclean all

@@ -1,20 +1,16 @@
-# include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iantar <iantar@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/01 18:24:54 by iantar            #+#    #+#             */
+/*   Updated: 2023/08/01 18:26:33 by iantar           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-class Contact
-{
-public:
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	darkest_secret;
-};
-
-class PhoneBook
-{
-public:
-	Contact	contact[8];
-};
+#include "PhoneBook.hpp"
 
 std::string	just_ten(std::string str)
 {
@@ -38,8 +34,6 @@ void	display_info(Contact	contact, int index)
 	std::cout << just_ten(contact.last_name) << "|";
 	std::cout << just_ten(contact.nickname) << "|" << std::endl;
 	std::cout << " -------------------------------------------- " << std::endl;
-	//std::cout << just_ten(contact.phone_number) << "|";
-	//std::cout << just_ten(contact.darkest_secret) << "|";
 }
 
 
