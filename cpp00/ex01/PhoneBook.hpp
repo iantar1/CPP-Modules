@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:25:00 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/01 18:25:05 by iantar           ###   ########.fr       */
+/*   Updated: 2023/08/08 10:42:11 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ public:
 	std::string	darkest_secret;
 };
 
-class PhoneBook
-{
-public:
-	Contact	contact[8];
-};
+// class PhoneBook
+// {
+// public:
+// 	Contact	contact[8];
+// };
+
 #endif

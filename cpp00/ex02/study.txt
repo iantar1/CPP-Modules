@@ -1,6 +1,5 @@
 
 
-
 [19920104_091532] index:0;amount:42;created
 [19920104_091532] index:1;amount:54;created
 [19920104_091532] index:2;amount:957;created
@@ -11,7 +10,7 @@
 [19920104_091532] index:7;amount:16576;created
 
 
-42 + 54 + 957 + 432 + 1234 + 0 + 754 + 16576 =  20049
+
 
 [19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
 
@@ -78,3 +77,4 @@
 [19920104_091532] index:5;amount:23;closed
 [19920104_091532] index:6;amount:106;closed
 [19920104_091532] index:7;amount:8942;closed
+

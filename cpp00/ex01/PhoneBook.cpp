@@ -6,11 +6,30 @@
 /*   By: iantar <iantar@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:24:54 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/01 18:26:33 by iantar           ###   ########.fr       */
+/*   Updated: 2023/08/08 10:42:57 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+class PhoneBook
+{
+private:
+	/* data */
+public:
+	Contact	contact[8];
+	PhoneBook(/* args */);
+	~PhoneBook();
+};
+
+PhoneBook::PhoneBook(/* args */)
+{
+}
+
+PhoneBook::~PhoneBook()
+{
+}
+
 
 std::string	just_ten(std::string str)
 {
@@ -27,7 +46,7 @@ std::string	just_ten(std::string str)
 		return (str.substr(0, 9) + ".");
 }
 
-void	display_info(Contact	contact, int index)
+void	display_info(Contact	contact, int index)//how string works
 {
 	std::cout << "|" << just_ten(std::to_string(index)) << "|";
 	std::cout << just_ten(contact.first_name) << "|";
@@ -58,6 +77,11 @@ int	main(void)
 				index = 0;
 			std::cout << "first name:";
 			std::getline(std::cin, phonebook.contact[index].first_name);
+			while (phonebook.contact[index].first_name.empty())
+			{
+				std::cout << "first name:";
+				std::getline(std::cin, phonebook.contact[index].first_name);
+			}
 			std::cout << "last name:";
 			std::getline(std::cin, phonebook.contact[index].last_name);
 			std::cout << "nickname:";
