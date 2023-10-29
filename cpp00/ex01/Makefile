@@ -1,8 +1,8 @@
 NAME = phonebook
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
 
-SRC = PhoneBook.cpp
+SRC = PhoneBook.cpp Contact.cpp
 
 OBJ = ${SRC:.cpp=.o}
 

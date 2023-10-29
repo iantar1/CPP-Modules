@@ -3,108 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iantar <iantar@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:24:54 by iantar            #+#    #+#             */
-/*   Updated: 2023/08/08 10:42:57 by iantar           ###   ########.fr       */
+/*   Updated: 2023/10/29 12:49:24 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-class PhoneBook
+PhoneBook::PhoneBook():anchor(0), num_of_contact(0)
 {
-private:
-	/* data */
-public:
-	Contact	contact[8];
-	PhoneBook(/* args */);
-	~PhoneBook();
-};
-
-PhoneBook::PhoneBook(/* args */)
-{
+   // anchor = 0;
+    //num_of_contact = 0;
 }
 
-PhoneBook::~PhoneBook()
+void    PhoneBook::seter()
 {
+    contact[(int)anchor].set();
+    if (num_of_contact < 8)
+        num_of_contact++;
+    if (anchor == 7)
+        anchor = 0;
+    else
+        anchor++;
 }
 
-
-std::string	just_ten(std::string str)
+void    PhoneBook::geter()
 {
-	int	i;
+    int index;
 
-	if (str.size() < 10)
-	{
-		i = str.size();
-		while (i++ < 10)
-			str += " ";
-		return (str);
-	}
-	else
-		return (str.substr(0, 9) + ".");
+    if (!anchor)
+        std::cout << "No contact has been added.\n";
+    else
+    {
+        std::cout << "enter an index:";
+        std::cin >> index;
+        while (index / 10 || index >= (int)num_of_contact)
+        {
+            std::cout << "enter an index:";
+            std::cin >> index;
+        }
+        contact[index].get(index);
+    }
 }
 
-void	display_info(Contact	contact, int index)//how string works
+int main(void)
 {
-	std::cout << "|" << just_ten(std::to_string(index)) << "|";
-	std::cout << just_ten(contact.first_name) << "|";
-	std::cout << just_ten(contact.last_name) << "|";
-	std::cout << just_ten(contact.nickname) << "|" << std::endl;
-	std::cout << " -------------------------------------------- " << std::endl;
-}
+    PhoneBook phonebook;
+    std::string input;
 
-
-int	main(void)
-{
-	std::string line;
-	PhoneBook	phonebook;
-	int	index;
-	int	saved;
-	int	i;
-
-	saved = 0;
-	while (std::getline(std::cin, line))
-	{
-		if (std::cin.eof())
-			return (1);
-		if (line == "ADD")
-		{
-			if (saved < 8)
-				saved++;
-			if (index == 9)
-				index = 0;
-			std::cout << "first name:";
-			std::getline(std::cin, phonebook.contact[index].first_name);
-			while (phonebook.contact[index].first_name.empty())
-			{
-				std::cout << "first name:";
-				std::getline(std::cin, phonebook.contact[index].first_name);
-			}
-			std::cout << "last name:";
-			std::getline(std::cin, phonebook.contact[index].last_name);
-			std::cout << "nickname:";
-			std::getline(std::cin, phonebook.contact[index].nickname);
-			std::cout << "phone number:";
-			std::getline(std::cin, phonebook.contact[index].phone_number);
-			std::cout << "darkest secret:";
-			std::getline(std::cin, phonebook.contact[index].darkest_secret);
-			index++;
-		}
-		else if (line == "SEARCH")
-		{
-			i = 0;
-			std::cout << "| index    |first name| last name| nickname |" << std::endl;
-			std::cout << " ------------------------------------------- " << std::endl;
-			while (i < saved)
-			{
-				display_info(phonebook.contact[i], i);
-				i++;
-			}
-		}
-		else if (line == "EXIT")
-			return (0);
-	}
-	return (0);
+    std::cout << PROMPT1;
+    while (std::getline(std::cin, input))
+    {
+        if (input == "ADD")
+            phonebook.seter();
+        else if (input == "SEARCH")
+            phonebook.geter();
+        else if (input == "EXIT")
+            return (0);
+        std::cout << PROMPT1;
+    }
+    return (0);
 }
