@@ -1,41 +1,35 @@
 #include <iostream>
-#include <unistd.h>
+
 #define EMPTY ""
 
-using namespace std;
+// using namespace std;
 
-namespace iantar{
-    int p;
-    
-    void    ara(const char *str)
-    {
-        int i;
-        for(i = 0; i < strlen(str); i++)   
-            write(1, &str[i], 1);
-    }
-}
 
-namespace hbaddy{
-    int p;
-    void    ara(const char *str)
-    {
-        int i;
-        for(i = 0; i < strlen(str); i++)   
-            write(1, &str[i], 1);
-        write(1, ".\n", 2);
-    }
-}
+// class StrinG
+// {
+// private:
+// public:
+//     int a;
+//     void acses(int x)
+//     {
+//         a = x;
+//     }
+//     StrinG()
+//     {
 
-using namespace hbaddy;
-using namespace iantar;
+//         std::cout << "constructor\n";
+//     }
+// };
 
-static int a = 2; 
-
-int main(void)
+class test
 {
-    std::string str;
+    private:
+        int a;
+};
 
-    if (str == EMPTY)
-        std::cout << "hehe\n";
+
+int main()
+{
+    test    a;
     return (0);
 }

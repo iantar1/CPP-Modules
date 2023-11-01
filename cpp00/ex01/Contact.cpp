@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:58:47 by iantar            #+#    #+#             */
-/*   Updated: 2023/10/29 11:17:07 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/01 10:04:58 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Contact::~Contact()
 
 void    Contact::get(int index)
 {
-    std::cout << " ___________________________________________\n";
-    std::cout << "|   index  |first name| last name| nickname |\n";
-     std::cout << "|___________________________________________|\n";
+    // std::cout << " ___________________________________________\n";
+    // std::cout << "|   index  |first name| last name| nickname |\n";
+    //  std::cout << "|___________________________________________|\n";
     std::cout << "|" << just_ten(std::to_string(index)) << "|";
     std::cout << just_ten(first_name) << "|";
     std::cout << just_ten(last_name) << "|";

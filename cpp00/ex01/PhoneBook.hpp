@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:25:00 by iantar            #+#    #+#             */
-/*   Updated: 2023/10/28 11:25:56 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/01 10:04:45 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # include <iostream>
 # include <string>
-#define EMPTY ""
-#define PROMPT1 "Eter ADD, SEARCH or EXIT:"
+# define PROMPT1 "Eter ADD, SEARCH or EXIT:"
 typedef char num_t;
 
 
@@ -47,6 +46,7 @@ private:
 
 public:
 	PhoneBook();
+	void    header(void);
 	void	seter();
 	void	geter();
 };
