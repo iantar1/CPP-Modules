@@ -1,4 +1,5 @@
 #include <iostream>
+# include <time.h>
 
 #define EMPTY ""
 
@@ -26,10 +27,27 @@ class test
     private:
         int a;
 };
+//using namespace name;
 
+int	a()
+{
+	std::cout << "2";	
+}
+
+
+
+
+// namespace name
+// {
+// 	int 	a()
+// 	{
+// 		std::cout << "1\n";		
+// 	}
+	
+// } 
 
 int main()
 {
-    test    a;
+    a();
     return (0);
 }
