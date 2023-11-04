@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:27:16 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/03 11:25:20 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/03 14:41:34 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	Account::getNbWithdrawals(void)
 void	Account::displayAccountsInfos(void)
 {
 	Account::_displayTimestamp();
-	std::cout << "accounts:" << Account::_nbAccounts;
-	std::cout << ";total:"<< Account::getTotalAmount();
+	std::cout << "accounts:" << _nbAccounts;
+	std::cout << ";total:"<< _totalAmount;
 	std::cout << ";deposits:"<< _totalNbDeposits <<";withdrawals:"<< _totalNbWithdrawals <<std::endl;
 }
 
