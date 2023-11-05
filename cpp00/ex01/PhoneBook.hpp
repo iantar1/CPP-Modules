@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:25:00 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/01 10:04:45 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/05 11:14:54 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
+#include <sstream>
 # define PROMPT1 "Eter ADD, SEARCH or EXIT:"
 typedef char num_t;
 
-
+bool	is_number(std::string str);
 class Contact
 {
 private:
@@ -33,15 +35,15 @@ public:
 	~Contact();
 	void	set();
 	void	get(int index);
-	bool	is_numbers(std::string str);
+	//bool	is_numbers(std::string str);
 	std::string just_ten(std::string str);
 };
 
 class PhoneBook
 {
 private:
-	num_t	anchor;
-	num_t	num_of_contact;
+	int	anchor;
+	int	num_of_contact;
 	Contact	contact[8];
 
 public:

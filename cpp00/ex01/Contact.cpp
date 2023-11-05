@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:58:47 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/01 10:19:28 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/05 11:36:10 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ Contact::~Contact()
 
 void    Contact::get(int index)
 {
-    std::cout << "|" << just_ten(std::to_string(index)) << "|";
+    std::stringstream intToString;
+
+    intToString << index;
+    std::cout << "|" << just_ten(intToString.str()) << "|";
     std::cout << just_ten(first_name) << "|";
     std::cout << just_ten(last_name) << "|";
     std::cout << just_ten(nickname) << "|" << std::endl;
@@ -46,7 +49,53 @@ std::string Contact::just_ten(std::string str)
 		return (str.substr(0, 9) + ".");
 }
 
-bool    Contact::is_numbers(std::string str)
+
+void    Contact::set()
+{
+    
+    while (true)
+    {
+        std::cout << "first name: ";
+        if (!std::getline(std::cin, first_name))
+            exit (0);
+        if (!first_name.empty())
+            break ;
+    }
+    while (true)
+    {
+        std::cout << "last name: ";
+        if (!std::getline(std::cin, last_name))
+            exit (0);
+        if (!last_name.empty())
+            break ;
+    }
+    while (true)
+    {
+        std::cout << "nickname: ";
+        if (!std::getline(std::cin, nickname))
+            exit (0);
+        if (!nickname.empty())
+            break ;
+    }
+    while (true)
+    {
+        std::cout << "phone number: ";
+        if (!std::getline(std::cin, phone_number))
+            exit (0);
+        if ((!phone_number.empty() || is_number(phone_number)))
+            break ;
+    }
+    while (true)
+    {
+        std::cout << "darkest secret: ";
+        if (!std::getline(std::cin, darkest_secret))
+            exit (0);
+        if (!darkest_secret.empty())
+            break ;
+    }
+}
+
+bool    is_number(std::string str)
 {
     unsigned int   i;
 
@@ -57,39 +106,4 @@ bool    Contact::is_numbers(std::string str)
             return (0);
     }
     return (1);
-}
-
-void    Contact::set()
-{
-    
-    while (first_name.empty())
-    {
-        std::cout << "first name: ";
-        if (!std::getline(std::cin, first_name))
-            exit (0);
-    }
-    while (last_name.empty())
-    {
-        std::cout << "last name: ";
-        if (!std::getline(std::cin, last_name))
-            exit (0);
-    }
-    while (nickname.empty())
-    {
-        std::cout << "nickname: ";
-        if (!std::getline(std::cin, nickname))
-            exit (0);
-    }
-    while ((phone_number.empty() || !is_numbers(phone_number)))
-    {
-        std::cout << "phone number: ";
-        if (!std::getline(std::cin, phone_number))
-            exit (0);
-    }
-    while (darkest_secret.empty())
-    {
-        std::cout << "darkest secret: ";
-        if (!std::getline(std::cin, darkest_secret))
-            exit (0);
-    }
 }

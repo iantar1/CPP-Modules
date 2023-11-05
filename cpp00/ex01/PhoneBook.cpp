@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:24:54 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/01 10:08:42 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/05 11:51:00 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,39 @@ PhoneBook::PhoneBook():anchor(0), num_of_contact(0)
 
 void    PhoneBook::seter()
 {
-    contact[(int)anchor].set();
+    contact[anchor].set();
     if (num_of_contact < 8)
         num_of_contact++;
     if (anchor == 7)
         anchor = 0;
     else
         anchor++;
+    std::cout << "anchor:"<<anchor << std::endl;
 }
 
 void    PhoneBook::geter()
 {
     int index;
     int i;
+    std::string str;
 
     if (!anchor)
         std::cout << "No contact has been added.\n";
     else
     {
         PhoneBook::header();
-        for (i = 0; i < anchor; i++)
+        for (i = 0; i < num_of_contact; i++)
             contact[i].get(i);
-        std::cout << "enter an index:";
-        std::cin >> index;
+        index = 11;
         while (index / 10 || index >= (int)num_of_contact)
         {
             std::cout << "enter an index:";
-            std::cin >> index;
+            std::getline(std::cin, str);
             if (std::cin.eof())
                 exit(0);
+            if (str.empty() || str.size() > 1 || !is_number(str))
+                continue ;
+            index = str[0] - 48;
         }
         PhoneBook::header();
         contact[index].get(index);
@@ -78,5 +82,5 @@ int main(void)
             return (0);
         std::cout << PROMPT1;
     }
-    return (0);
+    return (EXIT_SUCCESS);
 }

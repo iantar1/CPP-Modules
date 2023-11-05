@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cctype>
 #include <string>
+#include <cstring>
 
 int	main(int ac, char *av[])
 {
@@ -13,7 +14,7 @@ int	main(int ac, char *av[])
 	while (++i < ac)
 	{
 		j = 0;
-		while (j < std::strlen(av[i]))
+		while (j < strlen(av[i]))
 			std::cout << (char)toupper(av[i][j++]);
 		if (i + 1 < ac)
 			std::cout << " ";
