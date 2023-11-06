@@ -2,7 +2,7 @@ NAME = account
 
 SRC = tests.cpp Account.cpp
 
-CPPFLAGS = -Wall -Wextra -Werror -fsanitize=address -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror
 
 OBJ = ${SRC:.cpp=.o}
 

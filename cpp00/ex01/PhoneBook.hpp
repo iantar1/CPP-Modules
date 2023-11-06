@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:25:00 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/05 11:14:54 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/06 10:58:25 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef char num_t;
 
 bool	is_number(std::string str);
+
 class Contact
 {
 private:

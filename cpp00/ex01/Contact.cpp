@@ -6,21 +6,21 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:58:47 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/05 11:36:10 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/06 10:58:22 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-Contact::Contact()
-{
-    //
-}
+// Contact::Contact()
+// {
+//     //
+// }
 
-Contact::~Contact()
-{
-    //
-}
+// Contact::~Contact()
+// {
+//     //
+// }
 
 void    Contact::get(int index)
 {
