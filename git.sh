@@ -1,6 +1,6 @@
 #!/bin/bash
 
 git add .
-git commit -m "to_save"
+git commit -m "$1"
 git push
 
