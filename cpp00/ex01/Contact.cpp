@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:58:47 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/07 11:24:50 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/07 18:37:19 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ std::string Contact::just_ten(std::string str)
 	{
 		i = str.size();
 		while (i++ < 10)
-			str += " ";
+			str = " " + str;
 		return (str);
 	}
 	else
