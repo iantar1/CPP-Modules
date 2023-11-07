@@ -6,21 +6,47 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 10:58:47 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/06 10:58:22 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/07 11:24:50 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-// Contact::Contact()
-// {
-//     //
-// }
+Contact::Contact()
+{
+    //
+}
 
-// Contact::~Contact()
-// {
-//     //
-// }
+Contact::~Contact()
+{
+    //
+}
+
+std::string    Contact::get_first_name(void) const
+{
+    return (first_name);
+}
+
+std::string    Contact::get_last_name(void) const
+{
+    return (last_name);
+}
+
+std::string    Contact::get_nickname(void) const
+{
+    return (nickname);
+}
+
+std::string    Contact::get_phone_number(void) const
+{
+    return (phone_number);
+}
+
+std::string    Contact::get_darkest_secret(void) const
+{
+    return (darkest_secret);
+}
+
 
 void    Contact::get(int index)
 {
@@ -82,7 +108,7 @@ void    Contact::set()
         std::cout << "phone number: ";
         if (!std::getline(std::cin, phone_number))
             exit (0);
-        if ((!phone_number.empty() || is_number(phone_number)))
+        if (is_number(phone_number))
             break ;
     }
     while (true)
@@ -100,10 +126,12 @@ bool    is_number(std::string str)
     unsigned int   i;
 
     i = 0;
+    if (str.empty())
+        return (false);
     for (i = 0; i < (unsigned int)str.size(); i++)
     {
         if (!isdigit(str[i]))
-            return (0);
+            return (false);
     }
-    return (1);
+    return (true);
 }

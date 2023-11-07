@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:24:54 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/05 11:51:00 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/07 11:28:56 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,20 @@ void    PhoneBook::seter()
         anchor = 0;
     else
         anchor++;
-    std::cout << "anchor:"<<anchor << std::endl;
+}
+
+void    PhoneBook::info(int index) const
+{
+    std::cout << "first name: "
+    << contact[index].get_first_name() << std::endl;
+    std::cout << "last name: "
+    << contact[index].get_last_name() << std::endl;
+    std::cout << "nickname: "
+    << contact[index].get_nickname() << std::endl;
+    std::cout << "phone number: "
+    << contact[index].get_phone_number() << std::endl;
+    std::cout << "darkest secret: "
+    << contact[index].get_darkest_secret() << std::endl;
 }
 
 void    PhoneBook::geter()
@@ -54,8 +67,7 @@ void    PhoneBook::geter()
                 continue ;
             index = str[0] - 48;
         }
-        PhoneBook::header();
-        contact[index].get(index);
+        PhoneBook::info(index);
     }
 }
 
@@ -80,6 +92,8 @@ int main(void)
             phonebook.geter();
         else if (input == "EXIT")
             return (0);
+        if (std::cin.eof())
+            return (EXIT_FAILURE);
         std::cout << PROMPT1;
     }
     return (EXIT_SUCCESS);

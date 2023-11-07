@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 18:25:00 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/06 10:58:25 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/07 11:14:43 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ private:
 public:
 	Contact();
 	~Contact();
-	void	set();
-	void	get(int index);
-	//bool	is_numbers(std::string str);
+	void		set();
+	void		get(int index);
+	bool		is_numbers(std::string str);
+	
+	std::string	get_first_name(void) const;
+	std::string	get_last_name(void) const;
+	std::string	get_nickname(void) const;
+	std::string	get_phone_number(void) const;
+	std::string	get_darkest_secret(void) const;
 	std::string just_ten(std::string str);
 };
 
@@ -49,6 +55,7 @@ private:
 
 public:
 	PhoneBook();
+	void    info(int index) const;
 	void    header(void);
 	void	seter();
 	void	geter();
