@@ -6,10 +6,11 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 18:39:47 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/09 11:09:50 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/09 11:20:26 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# pragma once
 # include <iostream>
 
 class Weapon

@@ -1,4 +1,4 @@
-NAME = 
+NAME = fight
 
 CC = c++
 
@@ -9,7 +9,7 @@ SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJ = ${SRC:.cpp=.o}
 
 ${NAME}:${OBJ}
-	CC ${CPPFLAGS} ${OBJ} -o ${NAME}
+	${CC} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
 all:${NAME}
 

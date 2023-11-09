@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:17:55 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/09 11:18:02 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/09 11:23:13 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ const	std::string& Weapon::getType(void)  const
 	return (type);
 }
 
-void	Weopon::setType(std::string	newType)
+void	Weapon::setType(std::string	newType)
 {
 	type = newType;
 }

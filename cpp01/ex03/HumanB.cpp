@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:17:36 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/09 11:17:46 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/09 14:06:19 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    HumanB::attack(void) const
     
 }
 
-void    HumanB::setWeopen(Weapon& _weapon)
+void    HumanB::setWeapon(Weapon& _weapon)
 {
-    weapon = _weapon;
+    weapon = &_weapon;
 }
