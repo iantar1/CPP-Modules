@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 13:00:20 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/04 13:03:13 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/08 11:17:51 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ private:
     std::string name;
 public:
     void announce( void );
+    void    setName(std::string _name);
     
-    Zombie(std::string set_name);
+    Zombie();
     ~Zombie();
 };
 

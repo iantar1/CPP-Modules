@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 10:23:01 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/08 11:17:32 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/09 11:17:36 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/09 11:17:46 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include "HumanB.hpp"
 
-// Zombie::Zombie(std::string set_name)
-// {
-//     name = set_name;
-//     std::cout << "construcor_set_name\n";
-// }
-
-Zombie::Zombie(void)
+HumanB::HumanB(std::string setName):name(setName)
 {
-    std::cout << "default construcor\n";
 }
 
-Zombie::~Zombie()
+HumanB::~HumanB()
 {
-    std::cout << name << ": Good bye!\n";
+    
 }
 
-void    Zombie::announce(void)
+void    HumanB::attack(void) const
 {
-    std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
+    
 }
 
-void    Zombie::setName(std::string _name)
+void    HumanB::setWeopen(Weapon& _weapon)
 {
-   name = _name;
+    weapon = _weapon;
 }

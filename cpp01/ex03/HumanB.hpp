@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 11:34:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/08 11:12:32 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/08 18:39:53 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/09 11:18:26 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# pragma once
 
-int main(void)
+# include "Weapon.hpp"
+
+class HumanB
 {
-    Zombie *z;
-    
-    randomChump("tick");
-    z = newZombie("mick");
-    delete z;
-    return (0);
-}
+private:
+    Weapon&     weapon;
+    std::string name;
+public:
+    HumanB(std::string name);
+    ~HumanB();
+
+public:
+    void    setWeapon(Weapon& weapon);
+    void	attack(void) const;
+};

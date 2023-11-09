@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 11:34:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/08 11:12:32 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/08 18:39:47 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/09 11:09:50 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include <iostream>
 
-int main(void)
+class Weapon
 {
-    Zombie *z;
-    
-    randomChump("tick");
-    z = newZombie("mick");
-    delete z;
-    return (0);
-}
+private:
+    std::string type;
+
+public:
+    Weapon(std::string type_set);
+    ~Weapon();
+public:
+    const std::string&   getType(void)  const;
+    void    setType(std::string newType);
+};
+
