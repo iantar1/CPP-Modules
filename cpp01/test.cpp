@@ -3,21 +3,23 @@
 class test
 {
 private:
-    /* data */
+    /* 
+    data */
 public:
+    void    fun(void);
     test(std::string str);
     test();
     ~test();
 };
 
-test::test(std::string str)
+void    test::fun(void)
 {
-    std::cout <<"Constructor:" << str << std::endl;
+    std::cout <<"fun"  << std::endl;
 }
 
 test::test(void)
 {
-    std::cout <<"copyConstructor"  << std::endl;
+    std::cout <<"Constructor"  << std::endl;
 }
 
 test::~test()
@@ -31,7 +33,8 @@ int main(void)
     test    t;
     //test    b("stack");
 
-    std::cout << t << std::endl;
-    //t = new test("heap");
+    //std::cout << t << std::endl;
+    //t.~test();
+    t.fun();
     return (0);
 }
