@@ -30,11 +30,6 @@ test::~test()
 
 int main(void)
 {
-    test    t;
-    //test    b("stack");
-
-    //std::cout << t << std::endl;
-    //t.~test();
-    t.fun();
+    std::cout << std::string::npos << std::endl;
     return (0);
 }
