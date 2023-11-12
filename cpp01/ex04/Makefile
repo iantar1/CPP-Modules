@@ -4,7 +4,7 @@ CPP = clang++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp replace.cpp
 
 OBJ = ${SRC:.cpp=.o}
 

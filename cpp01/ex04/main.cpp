@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:37:24 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/11 11:26:17 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/12 11:24:01 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main(int ac, char *av[])
         inputFile.close();
         return (EXIT_FAILURE);
     }
-    
+    replace rep(av[2], av[3]);
+    rep.replaceLine(inputFile, outputFile);
     return (0);
 }
