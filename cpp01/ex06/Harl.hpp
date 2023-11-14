@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 11:44:30 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/13 11:50:14 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/13 13:06:35 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/14 10:22:33 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Harl.hpp"
+# pragma once
 
-int main(void)
+
+# include <iostream>
+# include <cstdlib>
+
+class Harl
 {
-    Harl    obj;
-    std::string str[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-    for (int i = 0; i < 4; i++)
-        obj.complain(str[i]);
-    return (EXIT_SUCCESS);
-}
+private:
+    void debug( void );
+    void info( void );
+    void warning( void );
+    void error( void );
+public:
+    Harl(/* args */);
+    ~Harl();
+public:
+    void complain( std::string level );
+};

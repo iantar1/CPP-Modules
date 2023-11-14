@@ -6,6 +6,7 @@ private:
     /* 
     data */
 public:
+    int a;
     void    fun(void);
     test(std::string str);
     test();
@@ -19,17 +20,19 @@ void    test::fun(void)
 
 test::test(void)
 {
-    std::cout <<"Constructor"  << std::endl;
+   // std::cout <<"Constructor"  << std::endl;
 }
 
 test::~test()
 {
-    std::cout << "destructor\n";
+   // std::cout << "destructor\n";
 }
 
 
 int main(void)
 {
-    std::cout << std::string::npos << std::endl;
+    test    obj;
+
+    void    (test::*ptr)(void);
     return (0);
 }

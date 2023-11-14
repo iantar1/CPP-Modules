@@ -1,10 +1,10 @@
-NAME = sed_is_for_losers
-
-CPP = c++
+NAME = harlFilter
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp replace.cpp
+CPP = c++
+
+SRC = main.cpp Harl.cpp
 
 OBJ = ${SRC:.cpp=.o}
 

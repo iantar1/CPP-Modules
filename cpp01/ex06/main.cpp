@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 11:44:30 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/13 11:50:14 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/13 13:06:30 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/14 09:49:33 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Harl.hpp"
 
-int main(void)
+int main(int ac, char *av[])
 {
     Harl    obj;
-    std::string str[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    for (int i = 0; i < 4; i++)
-        obj.complain(str[i]);
+    if (ac != 2)
+        return (EXIT_FAILURE);
+    obj.complain(av[1]);
     return (EXIT_SUCCESS);
 }
