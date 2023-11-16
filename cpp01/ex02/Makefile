@@ -1,4 +1,4 @@
-NAME = ref
+NAME = brain
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -7,6 +7,9 @@ CPP = c++
 SRC = main.cpp
 
 OBJ = ${SRC:.cpp=.o}
+
+%.o: %.cpp
+	${CPP} ${CPPFLAGS} -c $< -o $@
 
 ${NAME}:${OBJ}
 	${CPP} ${CPPFLAGS} ${OBJ}  -o ${NAME} 
@@ -19,4 +22,4 @@ clean:
 fclean: clean
 	rm -f ${NAME}
 
-re: fclean re
+re: fclean all

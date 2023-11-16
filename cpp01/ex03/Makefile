@@ -1,6 +1,6 @@
 NAME = fight
 
-CC = c++
+CPP = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
  
@@ -8,8 +8,11 @@ SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
+%.o: %.cpp
+	${CPP} ${CPPFLAGS} -c $< -o $@
+
 ${NAME}:${OBJ}
-	${CC} ${CPPFLAGS} ${OBJ} -o ${NAME}
+	${CPP} ${CPPFLAGS} ${OBJ} -o ${NAME}
 
 all:${NAME}
 

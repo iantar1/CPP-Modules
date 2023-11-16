@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 10:13:35 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/04 11:36:52 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/15 09:56:27 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ public:
     void announce( void );
     
     Zombie(std::string set_name);
+    Zombie();
     ~Zombie();
 };
 

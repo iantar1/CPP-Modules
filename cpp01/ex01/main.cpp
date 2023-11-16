@@ -6,21 +6,20 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:23:16 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/08 12:42:34 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/15 11:51:20 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
+# include "Zombie.hpp"
 
 int main(void)
 {
-    Zombie *z;
+    Zombie *horde;
+    int     i;
 
-    z = zombieHorde(2, "hi");
-    (void)z;
-    //std::cout << "before delete\n";
-    //delete[] z;
-   //std::cout << "after delete \n";
+    horde = zombieHorde(3, "L7aj Mattish");
+    for (i = 0; i < 3; i++)
+        horde[i].announce();
+    delete[] horde;
     return (0);
 }
