@@ -8,6 +8,9 @@ SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJ = ${SRC:.cpp=.o}
 
+%.o: %.cpp
+	${CPP} ${CPPFLAGS} -c $< -o $@
+
 all: ${NAME}
 
 ${NAME}:${OBJ}

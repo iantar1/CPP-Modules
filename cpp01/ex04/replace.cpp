@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 10:21:33 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/16 11:02:14 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/16 11:13:58 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ std::string	replace::getNewLine(void)
 	size_t		pos = 0;
 	size_t		prev = 0;
 
-	while (1)
+	while (true)
 	{
 		pos = line.find(s1, prev);
 		if (pos == std::string::npos)
