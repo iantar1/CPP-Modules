@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:06:39 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/14 10:23:27 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:43:16 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void Harl::complain(std::string level)
 {
-    Harl    obj;
     int         i;
     std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     for (i = 0; i < 4; i++)
@@ -45,14 +44,6 @@ void Harl::complain(std::string level)
         default:
             std::cout << "[ Probably complaining about insignificant problems ]\n";
     } 
-}
-
-Harl::Harl(/* args */)
-{
-}
-
-Harl::~Harl()
-{
 }
 
 void Harl::debug( void )

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:43:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/13 11:22:43 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:40:52 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ private:
     void info( void );
     void warning( void );
     void error( void );
-public:
-    Harl(/* args */);
-    ~Harl();
+
 public:
     void complain( std::string level );
 };

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:39:49 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/12 10:38:45 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:38:39 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 	replace(std::string s1_, std::string s2_);
 	~replace();
 public:
-	//void		setLine(std::ofstream outputFile);
 	std::string	getNewLine(void);
 	void		replaceLine(std::ifstream& inputFile, std::ofstream& outputFile);
 };

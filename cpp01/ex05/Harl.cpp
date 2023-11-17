@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:43:48 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/16 14:29:59 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:40:36 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@ void Harl::complain(std::string level)
 		if (str[i].compare(level) == 0)
 			(this->*ptr[i])();
 	} 
-}
-
-Harl::Harl(/* args */)
-{
-}
-
-Harl::~Harl()
-{
 }
 
 void Harl::debug( void )

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:17:09 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/15 14:34:57 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:38:02 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ HumanA::HumanA(std::string setName, Weapon& setWeapon)
 {
 }
 
-HumanA::~HumanA()
-{
-}
-
 void    HumanA::attack(void) const
 {
     std::cout << name;
     std::cout << " attacks with their ";
     std::cout << weapon.getType();
+    std::cout << std::endl;
 }
