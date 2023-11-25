@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes.hpp                                       :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 11:39:49 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/17 21:19:33 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/21 15:34:41 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/24 10:45:44 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
 # include <iostream>
-# include <fstream>
 # include <cstdlib>
+# include <cmath>
 
-class replace
+class Fixed
 {
 private:
-	std::string line;
-	std::string	s1;
-	std::string	s2;
-	std::string newLine;
-	std::string	fileName;
-	size_t		index;
+	int             fixedNum;
+	static const    int fractionBits;
 public:
-	replace(std::string s1_, std::string s2_);
+	Fixed(void);
+	Fixed(const int iNum);
+	Fixed(const float fNum);
+	Fixed(const Fixed& obj);
+	~Fixed();
+// obj"cout" << fixed
+	
 
 public:
-	std::string	getNewLine(void);
-	void		replaceLine(std::ifstream& inputFile, std::ofstream& outputFile);
+ 	float	toFloat( void ) const;
+	int 	toInt( void ) const;
+	Fixed&	operator=(const Fixed& rhs);
+
+public:
+	int		getRawBits( void ) const;
+	void	setRawBits( int const raw );
+
 };
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);

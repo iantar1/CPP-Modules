@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:17:55 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/17 21:17:38 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/21 15:34:44 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/21 16:52:18 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+# include "Fixed.hpp"
 
-Weapon::Weapon(std::string type_set): type(type_set)
+int main(void)
 {
-}
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
 
-const	std::string& Weapon::getType(void)  const
-{
-	return (type);
-}
-
-void	Weapon::setType(std::string	newType)
-{
-	type = newType;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    return (EXIT_SUCCESS);
 }

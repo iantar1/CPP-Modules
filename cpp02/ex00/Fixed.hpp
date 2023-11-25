@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:17:55 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/17 21:17:38 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/21 15:34:41 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/21 16:58:39 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+# pragma once
 
-Weapon::Weapon(std::string type_set): type(type_set)
-{
-}
+# include <iostream>
+# include <cstdlib>
 
-const	std::string& Weapon::getType(void)  const
+class Fixed
 {
-	return (type);
-}
+private:
+	int             fixedNum;
+	static const    int fractionBits;
+public:
+	Fixed(void);
+	Fixed(Fixed& obj);
+	~Fixed();
+	Fixed&	operator=(Fixed& rhs)
+	{
+		this->fixedNum = rhs.fixedNum;
+		return (*this);
+	}
+public:
+	int		getRawBits( void ) const;
+	void	setRawBits( int const raw );
+};
 
-void	Weapon::setType(std::string	newType)
-{
-	type = newType;
-}
+

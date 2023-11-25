@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 10:21:33 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/16 11:13:58 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/17 21:19:07 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,4 @@ std::string	replace::getNewLine(void)
 
 replace::replace(std::string s1_, std::string s2_): s1(s1_), s2(s2_)
 {
-}
-
-replace::~replace()
-{
-	
 }

@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:17:55 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/17 21:17:38 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/21 15:34:38 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/21 17:19:25 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+# include "Fixed.hpp"
 
-Weapon::Weapon(std::string type_set): type(type_set)
+const int	Fixed::fractionBits = 8;
+
+Fixed::Fixed(Fixed& obj)
 {
+	this->fixedNum = obj.fixedNum;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
-const	std::string& Weapon::getType(void)  const
+Fixed::Fixed(void)
 {
-	return (type);
+	fixedNum = 0;
+	std::cout << "Default constructor called" << std::endl;
 }
 
-void	Weapon::setType(std::string	newType)
+Fixed::~Fixed()
 {
-	type = newType;
+	std::cout << "Destructor called" << std::endl;
+}
+
+int Fixed::getRawBits( void ) const
+{
+	return (this->fixedNum);
 }
