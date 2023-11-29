@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 20:54:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/27 11:21:09 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/27 14:03:55 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/28 16:53:05 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
 
-int main(void)
+FragTrap::FragTrap()//: HitPoints(100), EnergyPoints(100), AttackDamage(30)
 {
-    ClapTrap    robot1;
+	HitPoints = 100;
+	EnergyPoints = 100;
+	AttackDamage = 30;
+}
 
-    robot1.attack("3bbas");
-    robot1.beRepaired(10);
-    robot1.takeDamage(20);
-    return (EXIT_SUCCESS);
+FragTrap::FragTrap(std::string name)//: Name(name)
+{
+	Name = name;
+}
+
+FragTrap::~FragTrap()
+{
+}
+
+void	FragTrap::highFivesGuys(void)
+{
+	std::cout << "Would you like to give a high five?\n";
 }

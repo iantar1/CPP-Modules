@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:12 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/27 10:44:16 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/28 16:51:14 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-private:
+protected:
 	unsigned int	HitPoints;
 	unsigned int	EnergyPoints;
 	unsigned int	AttackDamage;

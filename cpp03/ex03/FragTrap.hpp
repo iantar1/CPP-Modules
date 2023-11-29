@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 20:54:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/27 11:21:09 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/27 14:03:59 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/29 11:15:32 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# pragma once
 
-int main(void)
+# include "ScavTrap.hpp"
+
+class FragTrap: virtual public ClapTrap
 {
-    ClapTrap    robot1;
+public:
+    FragTrap();
+    FragTrap(std::string);
+    ~FragTrap();
 
-    robot1.attack("3bbas");
-    robot1.beRepaired(10);
-    robot1.takeDamage(20);
-    return (EXIT_SUCCESS);
-}
+    void highFivesGuys(void);
+};
+

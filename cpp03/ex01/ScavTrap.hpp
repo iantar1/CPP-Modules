@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 20:54:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/27 11:21:09 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/27 11:13:02 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/28 17:09:19 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# pragma once
+
 # include "ClapTrap.hpp"
 
-int main(void)
+class ScavTrap: public ClapTrap
 {
-    ClapTrap    robot1;
+public:
+    ScavTrap(/* args */);
+    ScavTrap(std::string);
+    ~ScavTrap();
+    ScavTrap(const ScavTrap&);
+    ScavTrap& operator=(const ScavTrap&);
 
-    robot1.attack("3bbas");
-    robot1.beRepaired(10);
-    robot1.takeDamage(20);
-    return (EXIT_SUCCESS);
-}
+    void guardGate();
+};

@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 20:54:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/27 11:21:09 by iantar           ###   ########.fr       */
+/*   Created: 2023/11/27 14:23:40 by iantar            #+#    #+#             */
+/*   Updated: 2023/11/29 10:30:30 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# pragma once
 
-int main(void)
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
+
+class DiamondTrap: public FragTrap, public ScavTrap
 {
-    ClapTrap    robot1;
-
-    robot1.attack("3bbas");
-    robot1.beRepaired(10);
-    robot1.takeDamage(20);
-    return (EXIT_SUCCESS);
-}
+private:
+    std::string Name;
+    
+public:
+    DiamondTrap(/* args */);
+    DiamondTrap(const std::string&);
+    ~DiamondTrap(void);
+    DiamondTrap(const DiamondTrap&);
+    DiamondTrap& operator=(const DiamondTrap&);
+    void whoAmI();
+};

@@ -6,18 +6,23 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/27 11:21:09 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/29 14:15:28 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+# include "DiamondTrap.hpp"
 
 int main(void)
 {
-    ClapTrap    robot1;
-
-    robot1.attack("3bbas");
-    robot1.beRepaired(10);
-    robot1.takeDamage(20);
+    DiamondTrap obj("brahim");
+    
+    //obj.ScavTrap::attack("brahim");
+    //obj.ScavTrap::attack("brahim");
+    //obj.guardGate();
+    //std::cout << "string's size: " << sizeof(std::string) << "\n";
+    // std::cout << "FragTrap's size: " << sizeof(FragTrap) << "\n";
+    // std::cout << "ClapTrap's size: " << sizeof(ClapTrap) << "\n";
+    // std::cout << "ScavTrap's size: " << sizeof(ScavTrap) << "\n";
+    // std::cout << "DiamondTrap's size: " << sizeof(DiamondTrap) << "\n";
     return (EXIT_SUCCESS);
 }
