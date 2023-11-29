@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:34:38 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/24 10:50:57 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/29 21:36:03 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 const int	Fixed::fractionBits = 8;
 
-Fixed::Fixed(const Fixed& obj)
-{
-	//this->fixedNum = obj.fixedNum;
-	std::cout << "Copy constructor called" << std::endl;
-	*this = obj;
-}
-
 Fixed::Fixed(void):fixedNum(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
+
+Fixed::Fixed(const Fixed& obj)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = obj;
+}
+
 
 Fixed::~Fixed()
 {
@@ -33,7 +33,7 @@ Fixed::~Fixed()
 
 void	Fixed::setRawBits( int const raw )
 {
-	fixedNum = raw;
+	this->fixedNum = raw;
 }
 	
 int Fixed::getRawBits( void ) const
