@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:15 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/29 10:24:27 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/29 14:37:12 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ ClapTrap::ClapTrap(): HitPoints(10), EnergyPoints(10), AttackDamage(0)
     std::cout << "ClapTrap Default Constructor\n";
 }
 
-ClapTrap::ClapTrap(std::string name): Name(name)
+ClapTrap::ClapTrap(std::string name): HitPoints(10), EnergyPoints(10), AttackDamage(0), Name(name)
 {
-    std::cout << "ClapTrap Constructor\n";
+    std::cout << "ClapTrap parametrize Constructor\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -29,6 +29,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
     this->HitPoints = other.HitPoints;
     this->EnergyPoints = other.EnergyPoints;
     this->AttackDamage = other.AttackDamage;
+    std::cout << "ClapCrap copy constructer called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)
@@ -37,6 +38,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)
     this->HitPoints = rhs.HitPoints;
     this->EnergyPoints = rhs.EnergyPoints;
     this->AttackDamage = rhs.AttackDamage;
+    std::cout << "ClapCrap copy asignment operator called\n";
     return (*this);
 }
 
