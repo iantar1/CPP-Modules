@@ -6,21 +6,21 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:15 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/29 14:37:12 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/02 11:23:28 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap(): HitPoints(10), EnergyPoints(10), AttackDamage(0)
+ClapTrap::ClapTrap(): HitPoints(10), EnergyPoints(10), AttackDamage(0), Name("ROBOT")
 {
-    std::cout << "ClapTrap Default Constructor\n";
+    std::cout << "ClapTrap Default Constructor called\n";
 }
 
 ClapTrap::ClapTrap(std::string name): HitPoints(10), EnergyPoints(10), AttackDamage(0), Name(name)
 {
-    std::cout << "ClapTrap parametrize Constructor\n";
+    std::cout << "ClapTrap parametrize Constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -49,45 +49,58 @@ ClapTrap::~ClapTrap()
     
 void	ClapTrap::attack(const std::string& target)
 {
-  if (HitPoints < AttackDamage || !EnergyPoints)
-  {
-    std::cout << "ana d3iff\n";
-  }
-  else
-  {
+    if (!HitPoints)
+    {
+        std::cout << "ClapTrap " << Name << " dosen't have HitPoints" << std::endl;
+        return ;
+    }
+    if (!EnergyPoints)
+    {
+        std::cout << "ClapTrap " << Name << " dosen't have HitPoints" << std::endl;   
+        return ;
+    }
     std::cout << "ClapTrap " << Name 
     << " attacks " << target << ", causing "
     << AttackDamage << " points of damage!\n";
-    HitPoints -= AttackDamage;
     EnergyPoints--;
-  }
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)//if amount = maxInt
+void	ClapTrap::takeDamage(unsigned int amount)
 {
     if ((int)amount < 0)
+    {
+        std::cout << "Invalid amount\n";
         return ;
-    if (HitPoints)
-        HitPoints += amount;
+    }
+    if (!HitPoints)
+    {
+		std::cout << "ClapTrap " << Name << " dosen't have HitPoints" << std::endl;
+        return ;
+    }
+    if (amount > HitPoints)
+        amount = HitPoints;
+    HitPoints -= amount;
+    std::cout << "ClapTrap " << Name << " takes " << amount << " points of damage\n";
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
     if (!EnergyPoints)
     {
-        std::cout << "khssni Tta9a alhaj\n";
+        std::cout << "I need EnergyPoints\n";
         return ;
     }
     if (!HitPoints)
     {
-        std::cout << "A ssb7allah ashrriff\n";
+        std::cout << "I need HitPoints\n";
         return ;
     }
     if ((int)amount < 0)
     {
-        std::cout << "Maf3ayl mawalo\n";
+        std::cout << "Invalid amount\n";
         return ;
     }
     HitPoints += amount;
     EnergyPoints--;
+	std::cout << amount << " points added to ClapTrap " << Name << "'s HistPoints\n";
 }

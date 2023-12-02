@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:13:40 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/26 14:23:26 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/01 10:46:52 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,4 @@ public:
 	const	Fixed&	getY(void) const;
 };
 
-
+bool bsp(Point const a, Point const b, Point const c, Point const point);

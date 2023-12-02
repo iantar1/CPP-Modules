@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:34:41 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/25 13:10:15 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/30 15:31:35 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <iostream>
 # include <cstdlib>
 # include <cmath>
-# define EPSILON 0.00390625
 
 class Fixed
 {
@@ -55,9 +54,10 @@ public:
 	Fixed	operator--(int);
 
 	static	Fixed&	min(Fixed& fix1, Fixed& fix2);
-	static	Fixed&	min(const Fixed& fix1, const Fixed& fix2);
+	static	const Fixed&	min(const Fixed& fix1, const Fixed& fix2);
 	static	Fixed&	max(Fixed& fix1, Fixed& fix2);
-	static	Fixed&	max(const Fixed& fix1, const Fixed& fix2);
+	static	const Fixed&	max(const Fixed& fix1, const Fixed& fix2);
 
 };
+	
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);

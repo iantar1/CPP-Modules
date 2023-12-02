@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:34:41 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/24 10:45:44 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/30 14:19:41 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ public:
 	Fixed(const float fNum);
 	Fixed(const Fixed& obj);
 	~Fixed();
-// obj"cout" << fixed
 	
 
 public:

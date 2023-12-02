@@ -1,4 +1,4 @@
-NAME = bsp
+NAME = notBSP
 
 CPP = c++
 

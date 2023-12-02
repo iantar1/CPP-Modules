@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:34:38 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/25 13:11:22 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/30 14:46:59 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@ const int	Fixed::fractionBits = 8;
 
 Fixed::Fixed(const Fixed& obj)
 {
-	//this->fixedNum = obj.fixedNum;
-	std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed::Fixed(void):fixedNum(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 void	Fixed::setRawBits( int const raw )
@@ -43,20 +39,17 @@ int Fixed::getRawBits( void ) const
 
 Fixed::Fixed(const float fNum)
 {
-	std::cout << "Float constructor called\n";
 	setRawBits(roundf(fNum * (1<<fractionBits)));
 }
 
 Fixed&	Fixed::operator=(const Fixed& rhs)
 {
-	std::cout << "Copy assignment operator called\n";
 	fixedNum = rhs.getRawBits();
 	return (*this);
 }
 
 Fixed::Fixed(const int a)
-{
-	std::cout << "Int constructor called\n";	
+{	
 	fixedNum = a * (1<<fractionBits);
 }
 

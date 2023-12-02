@@ -6,14 +6,14 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/28 17:13:20 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/01 17:42:43 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ScavTrap.hpp"
 # include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap()//:ClapTrap(), HitPoints(100), EnergyPoints(50), AttackDamage(20)
+ScavTrap::ScavTrap(): ClapTrap()// HitPoints(100), EnergyPoints(50), AttackDamage(20)
 {
     HitPoints = 100;
     EnergyPoints = 50;

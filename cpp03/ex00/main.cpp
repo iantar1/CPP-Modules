@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:06 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/29 14:39:49 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/02 11:24:42 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 int main(void)
 {
-    ClapTrap    robot1("hi");
-    ClapTrap    robot2(robot1);
-    ClapTrap    robot3;
-
-    robot3 = robot2;
-    robot1.attack("k");
-    robot2.attack("k");
-    // robot1.attack("3bbas");
-    // robot1.beRepaired(10);
-    // robot1.takeDamage(20);
+    ClapTrap    robot1("Tashfin");
+    robot1.attack("x");
+    ClapTrap    robot2 = robot1;
+    robot1.attack("x");
+    robot1.attack("x");
+    robot1.attack("x");
+    robot1.attack("x");
+    robot1.attack("x");
+    robot1.attack("x");
+    robot1.attack("x");
+    robot1.attack("x");
+    
+    //robot1.takeDamage(1);
+    //robot1.beRepaired(1);
     return (EXIT_SUCCESS);
 }

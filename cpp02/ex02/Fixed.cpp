@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:34:38 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/25 13:11:22 by iantar           ###   ########.fr       */
+/*   Updated: 2023/11/30 15:31:39 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@ const int	Fixed::fractionBits = 8;
 
 Fixed::Fixed(const Fixed& obj)
 {
-	//this->fixedNum = obj.fixedNum;
-	std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 }
 
 Fixed::Fixed(void):fixedNum(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 void	Fixed::setRawBits( int const raw )
@@ -43,20 +39,17 @@ int Fixed::getRawBits( void ) const
 
 Fixed::Fixed(const float fNum)
 {
-	std::cout << "Float constructor called\n";
 	setRawBits(roundf(fNum * (1<<fractionBits)));
 }
 
 Fixed&	Fixed::operator=(const Fixed& rhs)
 {
-	std::cout << "Copy assignment operator called\n";
 	fixedNum = rhs.getRawBits();
 	return (*this);
 }
 
 Fixed::Fixed(const int a)
 {
-	std::cout << "Int constructor called\n";	
 	fixedNum = a * (1<<fractionBits);
 }
 
@@ -138,27 +131,27 @@ Fixed	Fixed::operator/(const Fixed& rhs)
 
 Fixed&	Fixed::operator++(void)
 {
-	this->fixedNum = this->fixedNum + EPSILON * (1 << (Fixed::fractionBits));
+	this->fixedNum = this->fixedNum + 1;
 	return (*this);
 }
 
 Fixed&	Fixed::operator--(void)
 {
-	this->fixedNum = this->fixedNum - EPSILON * (1 << (Fixed::fractionBits));
+	this->fixedNum = this->fixedNum - 1;
 	return (*this);
 }
 
-Fixed	Fixed::operator++(int)//why int and not Fixed, and how the compiler distinguitch between ++a and a++, by just adding "int" in the parameter 
+Fixed	Fixed::operator++(int)
 {
 	Fixed	tmp(*this);
-	this->fixedNum = this->fixedNum + EPSILON * (1 << (Fixed::fractionBits));
+	this->fixedNum = this->fixedNum + 1;
 	return (tmp);
 }
 
 Fixed	Fixed::operator--(int)
 {
 	Fixed	tmp(*this);
-	this->fixedNum = this->fixedNum - EPSILON * (1 << (Fixed::fractionBits));
+	this->fixedNum = this->fixedNum - 1;
 	return (tmp);
 }
 
@@ -170,23 +163,24 @@ Fixed&	Fixed::min(Fixed& fix1, Fixed& fix2)
 }
 
 
-Fixed&	Fixed::min(const Fixed& fix1, const Fixed& fix2)
+const Fixed&	Fixed::min(const Fixed& fix1, const Fixed& fix2)
 {
 	if (fix1.getRawBits() < fix2.getRawBits())
-		return (const_cast<Fixed&>(fix1));
-	return (const_cast<Fixed&>(fix2));
+		return ((fix1));
+	return ((fix2));
 }
 
-Fixed&	Fixed::max(Fixed& fix1, Fixed& fix2)//why const??
+Fixed&	Fixed::max(Fixed& fix1, Fixed& fix2)
+
 {
 	if (fix1.getRawBits() > fix2.getRawBits())
 		return (fix1);
 	return (fix2);
 }
 
-Fixed&	Fixed::max(const Fixed& fix1, const Fixed& fix2)
+const Fixed&	Fixed::max(const Fixed& fix1, const Fixed& fix2)
 {
 	if (fix1.getRawBits() > fix2.getRawBits())
-		return (const_cast<Fixed&>(fix1));
-	return (const_cast<Fixed&>(fix2));
+		return ((fix1));
+	return ((fix2));
 }
