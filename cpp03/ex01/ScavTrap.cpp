@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:14:56 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:40:58 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,24 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
     this->HitPoints = rhs.HitPoints;
     std::cout << "ScavTrap copy assignement operator\n";
     return (*this);
+}
+
+void ScavTrap::attack(const std::string& target)
+{ 
+    if (!HitPoints)
+    {
+        std::cout << "ScavTrap " << Name << " dosen't have HitPoints" << std::endl;
+        return ;
+    }
+    if (!EnergyPoints)
+    {
+        std::cout << "ScavTrap " << Name << " dosen't have HitPoints" << std::endl;   
+        return ;
+    }
+    std::cout << "ScavTrap " << Name 
+    << " attacks " << target << ", causing "
+    << AttackDamage << " points of damage!\n";
+    EnergyPoints--;
 }
 
 void ScavTrap::guardGate(void)

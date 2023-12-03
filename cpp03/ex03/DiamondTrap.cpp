@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:37 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:20:37 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:47:42 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 DiamondTrap::DiamondTrap(void)
 {
+    HitPoints = 100;
+    EnergyPoints = 50;
+    AttackDamage = 30;
     std::cout << "DiamondTrap default Constructor\n";
 }
 
@@ -21,6 +24,9 @@ DiamondTrap::DiamondTrap(void)
 DiamondTrap::DiamondTrap(const std::string& name)
 {
     Name = name;
+    HitPoints = 100;
+    EnergyPoints = 50;
+    AttackDamage = 30;
     ClapTrap::Name = name + "_clap_name";
     std::cout << "DiamondTrap parametrize Constructor\n";
 }
@@ -51,6 +57,11 @@ DiamondTrap&   DiamondTrap::operator=(const DiamondTrap& rhs)
     this->AttackDamage = rhs.AttackDamage;
     std::cout << "DiamondTrap copy asignment operator called\n";
     return (*this);
+}
+
+void DiamondTrap::atack(const std::string& target)
+{
+    ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI(void)
