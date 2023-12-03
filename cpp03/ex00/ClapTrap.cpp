@@ -6,14 +6,14 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:15 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/02 12:56:12 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:12:45 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ClapTrap.hpp"
 
 
-ClapTrap::ClapTrap(): HitPoints(10), EnergyPoints(10), AttackDamage(0), Name("ROBOT")
+ClapTrap::ClapTrap(): HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
     std::cout << "ClapTrap Default Constructor called\n";
 }

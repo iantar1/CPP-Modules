@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:13:02 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/01 17:43:05 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:09:59 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class ScavTrap: public ClapTrap
 {
 public:
-    ScavTrap(/* args */);
+    ScavTrap();
     ScavTrap(std::string);
     ~ScavTrap();
     ScavTrap(const ScavTrap&);

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:03:55 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 14:52:13 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:16:17 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,21 @@ FragTrap::FragTrap()
 	HitPoints = 100;
 	EnergyPoints = 100;
 	AttackDamage = 30;
+    std::cout << "FragTrap default constructor\n";
 }
 
 FragTrap::FragTrap(std::string name)
 {
 	Name = name;
+    HitPoints = 100;
+	EnergyPoints = 100;
+	AttackDamage = 30;
+    std::cout << "FragTrap parametrize constructor\n";
 }
 
 FragTrap::~FragTrap()
 {
+    std::cout << "FragTrap destructor\n";
 }
 
 FragTrap::FragTrap(const FragTrap& other)

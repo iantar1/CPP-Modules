@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 14:57:34 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:17:53 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ ScavTrap::ScavTrap()
 ScavTrap::ScavTrap(std::string name)
 {
     Name = name;
+    HitPoints = 100;
+    EnergyPoints = 50;
+    AttackDamage = 20;
     std::cout << "ScavTrap constructor\n";
 }
 

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:37 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 15:20:47 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:20:37 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ DiamondTrap&   DiamondTrap::operator=(const DiamondTrap& rhs)
 
 void DiamondTrap::whoAmI(void)
 {
-    std::cout << Name  << ClapTrap::Name << std::endl;
+    std::cout << Name << " " << ClapTrap::Name << std::endl;
 }

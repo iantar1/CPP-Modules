@@ -6,14 +6,15 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 14:42:09 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 17:14:56 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ScavTrap.hpp"
 # include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap(){
+ScavTrap::ScavTrap()
+{
     HitPoints = 100;
     EnergyPoints = 50;
     AttackDamage = 20;
@@ -23,7 +24,10 @@ ScavTrap::ScavTrap(): ClapTrap(){
 ScavTrap::ScavTrap(std::string name)
 {
     Name = name;
-    std::cout << "ScavTrap constructor\n";
+    HitPoints = 100;
+    EnergyPoints = 50;
+    AttackDamage = 20;
+    std::cout << "ScavTrap parametrize constructor\n";
 }
 
 ScavTrap::~ScavTrap(void)
@@ -31,10 +35,6 @@ ScavTrap::~ScavTrap(void)
     std::cout << "ScavTrap destructor\n";
 }
 
-void ScavTrap::guardGate(void)
-{
-    std::cout << "I am now in Gate keeper mode.\n";
-}
 
 ScavTrap::ScavTrap(const ScavTrap& other)
 {
@@ -44,6 +44,7 @@ ScavTrap::ScavTrap(const ScavTrap& other)
     this->AttackDamage = other.AttackDamage;
     this->EnergyPoints = other.EnergyPoints;
     this->HitPoints = other.HitPoints;
+    std::cout << "ScavTrap copy constructor\n";
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
@@ -54,5 +55,11 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
     this->AttackDamage = rhs.AttackDamage;
     this->EnergyPoints = rhs.EnergyPoints;
     this->HitPoints = rhs.HitPoints;
+    std::cout << "ScavTrap copy assignement operator\n";
     return (*this);
+}
+
+void ScavTrap::guardGate(void)
+{
+    std::cout << "I am now in Gate keeper mode.\n";
 }
