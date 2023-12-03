@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:15 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/02 11:38:18 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 10:12:16 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)
 {
+    if (this == &rhs)
+        return (*this);
     this->Name = rhs.Name;
     this->HitPoints = rhs.HitPoints;
     this->EnergyPoints = rhs.EnergyPoints;

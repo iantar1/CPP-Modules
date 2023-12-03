@@ -1,4 +1,4 @@
-NAME = Aaaaand
+NAME = ClapTrap
 
 CPP = c++
 

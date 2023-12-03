@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:40 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/29 10:30:30 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 15:20:32 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ private:
     std::string Name;
     
 public:
-    DiamondTrap(/* args */);
+    DiamondTrap();
     DiamondTrap(const std::string&);
     ~DiamondTrap(void);
     DiamondTrap(const DiamondTrap&);
     DiamondTrap& operator=(const DiamondTrap&);
+
     void whoAmI();
 };

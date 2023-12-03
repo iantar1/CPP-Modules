@@ -1,4 +1,4 @@
-NAME = Aaaaand
+NAME = ScavTrap
 
 CPP = clang++
 

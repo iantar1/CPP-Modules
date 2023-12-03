@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:03:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/28 16:50:53 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 14:44:41 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ public:
     FragTrap();
     FragTrap(std::string);
     ~FragTrap();
+    FragTrap(const FragTrap&);
+    FragTrap&   operator=(const FragTrap&);
 
     void highFivesGuys(void);
 };

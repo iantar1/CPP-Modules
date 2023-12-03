@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:37 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/01 17:38:06 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 15:20:47 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ DiamondTrap::DiamondTrap(const std::string& name)
 {
     Name = name;
     ClapTrap::Name = name + "_clap_name";
-    std::cout << "DiamondTrap Constructor\n";
+    std::cout << "DiamondTrap parametrize Constructor\n";
 }
 
 DiamondTrap::~DiamondTrap(void)
@@ -30,21 +30,30 @@ DiamondTrap::~DiamondTrap(void)
     std::cout << "DiamondTrap Destructor\n";
 }
 
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+{
+	if (this == &other)
+        return ;
+    this->Name = other.Name;
+    this->HitPoints = other.HitPoints;
+    this->EnergyPoints = other.EnergyPoints;
+    this->AttackDamage = other.AttackDamage;
+    std::cout << "DiamondTrap copy constructer called\n";
+}
+
+DiamondTrap&   DiamondTrap::operator=(const DiamondTrap& rhs)
+{
+	if (this == &rhs)
+        return (*this);
+    this->Name = rhs.Name;
+    this->HitPoints = rhs.HitPoints;
+    this->EnergyPoints = rhs.EnergyPoints;
+    this->AttackDamage = rhs.AttackDamage;
+    std::cout << "DiamondTrap copy asignment operator called\n";
+    return (*this);
+}
+
 void DiamondTrap::whoAmI(void)
 {
     std::cout << Name  << ClapTrap::Name << std::endl;
-}
-
-DiamondTrap::DiamondTrap(const DiamondTrap& other)
-{
-	*this = other;
-}
-
-DiamondTrap& DiamondTrap::operator=(const DiamondTrap& rhs)
-{
-	this->Name = rhs.Name;
-    this->FragTrap::HitPoints = rhs.FragTrap::HitPoints;
-    this->ScavTrap::EnergyPoints = rhs.ScavTrap::EnergyPoints;
-    this->FragTrap::AttackDamage = rhs.FragTrap::AttackDamage;
-	return (*this);	
 }

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/29 10:13:14 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 15:18:27 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,27 @@ ScavTrap::ScavTrap()
     EnergyPoints = 50;
     AttackDamage = 20;
     std::cout << "ScavTrap default constructor\n";
+}
+
+ScavTrap::ScavTrap(const ScavTrap& obj)
+{
+    if (this == &obj)
+        return ;
+    this->Name = obj.Name;
+    this->EnergyPoints = obj.EnergyPoints;
+    this->AttackDamage = obj.AttackDamage;
+    this->HitPoints = obj.HitPoints;
+}
+
+ScavTrap&   ScavTrap::operator=(const ScavTrap& rhs)
+{
+    if (this == &rhs)
+        return (*this);
+    this->Name = rhs.Name;
+    this->EnergyPoints = rhs.EnergyPoints;
+    this->AttackDamage = rhs.AttackDamage;
+    this->HitPoints = rhs.HitPoints;
+    return (*this);
 }
 
 ScavTrap::ScavTrap(std::string name)

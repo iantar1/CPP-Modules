@@ -1,4 +1,4 @@
-NAME = Aaaaand
+NAME = DiamondTrap
 
 CPP = c++
 

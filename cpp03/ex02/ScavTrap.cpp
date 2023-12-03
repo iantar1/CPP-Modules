@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/11/29 10:15:48 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 14:57:34 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,31 @@ ScavTrap::~ScavTrap(void)
 {
     std::cout << "ScavTrap destructor\n";
 }
+
+ScavTrap::ScavTrap(const ScavTrap& other)
+{
+	if (this == &other)
+        return ;
+    this->Name = other.Name;
+    this->HitPoints = other.HitPoints;
+    this->EnergyPoints = other.EnergyPoints;
+    this->AttackDamage = other.AttackDamage;
+    std::cout << "ScavTrap copy constructer called\n";
+}
+
+ScavTrap&   ScavTrap::operator=(const ScavTrap& rhs)
+{
+	if (this == &rhs)
+        return (*this);
+    this->Name = rhs.Name;
+    this->HitPoints = rhs.HitPoints;
+    this->EnergyPoints = rhs.EnergyPoints;
+    this->AttackDamage = rhs.AttackDamage;
+    std::cout << "ScavTrap copy asignment operator called\n";
+    return (*this);
+}
+
+
 
 void ScavTrap::guardGate(void)
 {
