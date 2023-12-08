@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:03:55 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:16:17 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 19:28:01 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap& other)
 {
-	if (this == &other)
-        return ;
     this->Name = other.Name;
     this->HitPoints = other.HitPoints;
     this->EnergyPoints = other.EnergyPoints;

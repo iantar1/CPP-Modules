@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:40:58 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 19:40:30 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap::ScavTrap(const ScavTrap& other)
 {
-    if (this == &other)
-        return ;
     this->Name = other.Name;
     this->AttackDamage = other.AttackDamage;
     this->EnergyPoints = other.EnergyPoints;

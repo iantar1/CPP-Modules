@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:03:55 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 15:20:13 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 20:56:54 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ FragTrap::FragTrap()
 	AttackDamage = 30;
 }
 
-FragTrap::FragTrap(std::string& name)
+FragTrap::FragTrap(const std::string& name)
 {
 	std::cout << "FragTrap Constructor\n";
 	Name = name;
@@ -33,8 +33,6 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(const FragTrap& other)
 {
-	if (this == &other)
-        return ;
     this->Name = other.Name;
     this->HitPoints = other.HitPoints;
     this->EnergyPoints = other.EnergyPoints;

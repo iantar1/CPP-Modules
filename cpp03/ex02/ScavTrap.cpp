@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:12:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:17:53 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 21:03:13 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,29 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap::ScavTrap(const ScavTrap& other)
 {
-	if (this == &other)
-        return ;
     this->Name = other.Name;
     this->HitPoints = other.HitPoints;
     this->EnergyPoints = other.EnergyPoints;
     this->AttackDamage = other.AttackDamage;
     std::cout << "ScavTrap copy constructer called\n";
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+    if (!HitPoints)
+    {
+        std::cout << "ScavTrap " << Name << " dosen't have HitPoints" << std::endl;
+        return ;
+    }
+    if (!EnergyPoints)
+    {
+        std::cout << "ScavTrap " << Name << " dosen't have HitPoints" << std::endl;   
+        return ;
+    }
+    std::cout << "ScavTrap " << Name 
+    << " attacks " << target << ", causing "
+    << AttackDamage << " points of damage!\n";
+    EnergyPoints--;
 }
 
 ScavTrap&   ScavTrap::operator=(const ScavTrap& rhs)

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:23:37 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:47:42 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/07 10:44:53 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 DiamondTrap::DiamondTrap(void)
 {
-    HitPoints = 100;
-    EnergyPoints = 50;
-    AttackDamage = 30;
+    HitPoints = FragTrap::HitPoints;
+    EnergyPoints = ScavTrap::EnergyPoints;
+    AttackDamage = FragTrap::AttackDamage;
     std::cout << "DiamondTrap default Constructor\n";
 }
 
 
-DiamondTrap::DiamondTrap(const std::string& name)
+DiamondTrap::DiamondTrap(const std::string& name):ClapTrap(name + "_clap_name"), Name(name)
 {
-    Name = name;
-    HitPoints = 100;
-    EnergyPoints = 50;
-    AttackDamage = 30;
-    ClapTrap::Name = name + "_clap_name";
+    
+    //Name = name;
+    HitPoints = FragTrap::HitPoints;
+    EnergyPoints = ScavTrap::EnergyPoints;
+    AttackDamage = FragTrap::AttackDamage;
+    //ClapTrap::Name = name + "_clap_name";
     std::cout << "DiamondTrap parametrize Constructor\n";
 }
 
@@ -38,8 +39,6 @@ DiamondTrap::~DiamondTrap(void)
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
 {
-	if (this == &other)
-        return ;
     this->Name = other.Name;
     this->HitPoints = other.HitPoints;
     this->EnergyPoints = other.EnergyPoints;
@@ -66,5 +65,5 @@ void DiamondTrap::atack(const std::string& target)
 
 void DiamondTrap::whoAmI(void)
 {
-    std::cout << Name << " " << ClapTrap::Name << std::endl;
+    std::cout << "I am " << Name << " ,and my grandfather is " << ClapTrap::Name << std::endl;
 }

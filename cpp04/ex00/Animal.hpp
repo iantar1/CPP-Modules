@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 20:54:12 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/07 10:51:39 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/05 10:55:57 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/08 15:15:10 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,25 @@
 
 # include <iostream>
 # include <cstdlib>
+# define DOG_SOUND "bark bark..!"
+# define DOG "Dog"
 
-class ClapTrap
+# define CAT_SOUND "Miow Miow..!"
+# define CAT "Cat"
+
+# define ANIMAL "shalom shalom..!"
+
+class Animal
 {
 protected:
-	unsigned int	HitPoints;
-	unsigned int	EnergyPoints;
-	unsigned int	AttackDamage;
-	std::string		Name;
+    std::string type;
 
 public:
-	ClapTrap();
-	ClapTrap(std::string);
-	ClapTrap(const ClapTrap&);
-	ClapTrap& operator=(const ClapTrap&);
-	~ClapTrap();
-	virtual std::string get();
-	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
+    Animal();
+    virtual ~Animal();
+    Animal(const Animal&);
+    Animal& operator=(const Animal&);
+    
+    virtual void    makeSound(void) const;
+    const std::string&  getType(void) const;
 };

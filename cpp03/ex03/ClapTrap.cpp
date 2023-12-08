@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:15 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:18:10 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/07 10:46:06 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 ClapTrap::ClapTrap(): HitPoints(10), EnergyPoints(10), AttackDamage(0)
 {
     std::cout << "ClapTrap Default Constructor called\n";
+}
+std::string ClapTrap::get()//:ClapTrap(name + "_clap_name"), Name(name)
+{
+       return (Name);
 }
 
 ClapTrap::ClapTrap(std::string name): HitPoints(10), EnergyPoints(10), AttackDamage(0), Name(name)

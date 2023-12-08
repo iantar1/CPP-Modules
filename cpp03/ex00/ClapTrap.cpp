@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 20:54:15 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/03 17:12:45 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/03 19:37:01 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ClapTrap::attack(const std::string& target)
     }
     if (!EnergyPoints)
     {
-        std::cout << "ClapTrap " << Name << " dosen't have HitPoints" << std::endl;   
+        std::cout << "ClapTrap " << Name << " dosen't have EnergyPoints" << std::endl;   
         return ;
     }
     std::cout << "ClapTrap " << Name 
