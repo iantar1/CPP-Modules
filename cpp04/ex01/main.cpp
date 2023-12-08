@@ -6,46 +6,52 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:55:39 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/08 15:56:08 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/08 21:04:59 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Cat.hpp"
 # include "Dog.hpp"
-# include "WrongCat.hpp"
+# define NUM 4
 
-void    wrong_version(void)
+void    deep_copy()
 {
+    Cat* cat1;
+    Cat* cat2;
+    //const   Dog* dog;
     
-    std::cout << "\n\n*****************************************\n\n";
-    const WrongAnimal* meta = new WrongAnimal();
-    const WrongAnimal* i = new WrongCat();
-
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << meta->getType() << " " << std::endl;
-
-    i->makeSound();
-    meta->makeSound();
-    delete meta;
-    delete i;
+    cat1 = new Cat;
+    cat2 = new Cat;
+    //dog = new Dog;
+    *cat1 = *cat2;
+    //delete cat1;
+    delete cat2;
+    //cat1.
 }
 
 int main(void)
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    deep_copy();
+    // const Animal    *animal[NUM/2 + NUM/2];
+    // int i;
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << meta->getType() << " " << std::endl;
+    // i = 0;
 
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-    delete meta;
-    delete j;
-    delete i;
-    wrong_version();
+    // while (i < NUM / 2)
+    // {
+    //     animal[i] = new Dog();
+    //     i++;
+    // }
+    
+    // while (i < NUM / 2 + NUM / 2)
+    // {
+    //     animal[i] = new Cat();
+    //     i++;
+    // }
+        
+    // for (int i = 0; i < (NUM / 2 + NUM / 2); i++)
+    // {
+    //     delete animal[i];
+    // }
     return (EXIT_SUCCESS);
 }
