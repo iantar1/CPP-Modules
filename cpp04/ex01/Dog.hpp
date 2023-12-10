@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:55:49 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/08 17:11:51 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/09 09:55:05 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ public:
     Dog&    operator=(const Dog&);
 
     void    makeSound(void) const;
+    Brain*	getBrain(void);
+    
 };

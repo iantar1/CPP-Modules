@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:58:32 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/08 21:09:43 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/08 21:30:20 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 
     const std::string& getIdea(int index) const;
     void        setIdea(int index, const std::string& str);
+
     
 };
 

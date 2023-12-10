@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:55:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 09:55:23 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/10 10:06:37 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/10 14:58:33 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+# include "AMateria.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Cat: public Animal
+class Ice: public AMateria
 {
 private:
-	Brain*	brain;
-
+    /* data */
 public:
-	Cat();
-	~Cat();
-	Cat(const Cat&);
-	Cat&	operator=(const Cat&);
+    Ice(/* args */);
+    ~Ice();
+    Ice(Ice&);
+    Ice&    operator=(Ice&);
 
-   void		makeSound(void) const;
-   Brain*	getBrain(void);
+    AMateria*   clone() const;
+    void use(ICharacter& target) override;
 };
-	

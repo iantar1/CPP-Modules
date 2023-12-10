@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:55:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 09:55:23 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/09 13:06:37 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/09 14:23:16 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include "AMateria.hpp"
 
-class Cat: public Animal
+class ICharacter
 {
-private:
-	Brain*	brain;
-
 public:
-	Cat();
-	~Cat();
-	Cat(const Cat&);
-	Cat&	operator=(const Cat&);
-
-   void		makeSound(void) const;
-   Brain*	getBrain(void);
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
 };
-	

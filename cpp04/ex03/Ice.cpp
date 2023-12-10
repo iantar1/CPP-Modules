@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:55:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 09:55:23 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/10 10:06:34 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/10 15:00:00 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+# include "Ice.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Cat: public Animal
+Ice::Ice(/* args */)
 {
-private:
-	Brain*	brain;
+    type = "ice";
+}
 
-public:
-	Cat();
-	~Cat();
-	Cat(const Cat&);
-	Cat&	operator=(const Cat&);
+Ice::~Ice()
+{
+}
 
-   void		makeSound(void) const;
-   Brain*	getBrain(void);
-};
-	
+Ice::Ice(Ice&)
+{
+
+}
+
+Ice&    Ice::operator=(Ice&)
+{
+    
+}
+
+AMateria* Ice::clone() const
+{
+    AMateria*   rtn;
+
+    rtn = new Ice;
+    return (rtn);
+}
+
+void Ice::use(ICharacter& target)
+{
+    std::cout << "shoots an ice bolt at " << target.getName() << std::endl; 
+}

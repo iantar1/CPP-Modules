@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AbstratAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,39 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Animal.hpp"
+# include "AbstratAnimal.hpp"
 
-Animal::Animal()
+AbstratAnimal::AbstratAnimal()
 {
-	type = "Animal";
-	std::cout << "Animal's default constructor colled" << std::endl;
+	type = "AbstratAnimal";
+	std::cout << "AbstratAnimal's default constructor colled" << std::endl;
 }
 
-Animal::Animal(const Animal& other)
+AbstratAnimal::AbstratAnimal(const AbstratAnimal& other)
 {
 	*this = other;
 }
 
-Animal&	Animal::operator=(const Animal& rhs)
+AbstratAnimal&	AbstratAnimal::operator=(const AbstratAnimal& rhs)
 {
 	if (this == &rhs)
 		return (*this);
 	this->type = rhs.type;
-	std::cout << "Animal's copy assingement operator called" << std::endl;
+	std::cout << "AbstratAnimal's copy assingement operator called" << std::endl;
 	return (*this);
 }
 
-Animal::~Animal()
+AbstratAnimal::~AbstratAnimal()
 {
-	std::cout << "Animal's destructor colled" << std::endl;
+	std::cout << "AbstratAnimal's destructor colled" << std::endl;
 }
 
-const std::string&  Animal::getType(void) const
+const std::string&  AbstratAnimal::getType(void) const
 {
 	return (type);	
-}
-
-void    Animal::makeSound(void) const
-{
-    std::cout <<  ANIMAL << std::endl;
 }

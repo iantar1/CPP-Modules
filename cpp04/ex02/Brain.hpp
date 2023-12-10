@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:55:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 09:55:23 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/08 16:58:32 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/09 11:52:57 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
 
-class Cat: public Animal
+class Brain
 {
 private:
-	Brain*	brain;
+    std::string ideas[100];
 
 public:
-	Cat();
-	~Cat();
-	Cat(const Cat&);
-	Cat&	operator=(const Cat&);
+    Brain(/* args */);
+    ~Brain();
+    Brain(const Brain&);
+    Brain&  operator=(const Brain&);
 
-   void		makeSound(void) const;
-   Brain*	getBrain(void);
+    const std::string& getIdea(int index) const;
+    void        setIdea(int index, const std::string& str);
 };
-	
+

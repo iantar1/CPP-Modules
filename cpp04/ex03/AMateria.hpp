@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:55:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 09:55:23 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/09 12:55:02 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/10 14:51:11 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include <iostream>
+# include "ICharacter.hpp"
 
-class Cat: public Animal
+//AMateria&   operator=(AMateria&);
+
+class AMateria
 {
-private:
-	Brain*	brain;
-
+protected:
+	std::string	type;
 public:
-	Cat();
-	~Cat();
-	Cat(const Cat&);
-	Cat&	operator=(const Cat&);
+	AMateria();
+	~AMateria();
+	AMateria(std::string const & type);
+	AMateria&	operator=(AMateria&);
 
-   void		makeSound(void) const;
-   Brain*	getBrain(void);
+	std::string const & getType() const; //Returns the materia type
+	virtual void use(ICharacter& target);
+	virtual AMateria* clone() const = 0;
 };
-	

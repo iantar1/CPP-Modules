@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:55:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 09:55:23 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/10 10:06:41 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/10 15:01:31 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+# include "Cure.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Cat: public Animal
+Cure::Cure()
 {
-private:
-	Brain*	brain;
+    type = "cure";
+}
 
-public:
-	Cat();
-	~Cat();
-	Cat(const Cat&);
-	Cat&	operator=(const Cat&);
+Cure::~Cure()
+{
+}
 
-   void		makeSound(void) const;
-   Brain*	getBrain(void);
-};
-	
+Cure::Cure(Cure&)
+{
+
+}
+
+Cure&   Cure::operator=(Cure&)
+{
+        
+}
+
+AMateria* Cure::clone() const
+{
+    AMateria*   rtn;
+
+    rtn = new Cure;
+    return (rtn);
+}
+
+void Cure::use(ICharacter& target)
+{
+    std::cout << "heals " << target.getName() << "’s wounds" << std::endl; 
+}

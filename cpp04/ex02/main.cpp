@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:55:39 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 10:34:44 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/09 11:52:36 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void    deep_copy()
 
 void    mainTest()
 {
-    const Animal    *animal[NUM/2 + NUM/2];
+    const AbstractAnimal    *animal[NUM/2 + NUM/2];
     int i;
 
     i = 0;
@@ -56,6 +56,13 @@ void    mainTest()
 
 int main(void)
 {
+    //mainTest();
+    const Cat  x;
+    x.makeSound();
+    
+    const   AbstractAnimal* dog = new Dog;
+    dog->makeSound();
+    delete dog;
     return (EXIT_SUCCESS);
 }
 

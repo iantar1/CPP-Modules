@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 10:55:52 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 09:55:23 by iantar           ###   ########.fr       */
+/*   Created: 2023/12/09 14:23:19 by iantar            #+#    #+#             */
+/*   Updated: 2023/12/10 10:46:52 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# pragma once
+# include "MateriaSource.hpp"
 
-# include "Animal.hpp"
-# include "Brain.hpp"
-
-class Cat: public Animal
+MateriaSource::MateriaSource(/* args */)
 {
-private:
-	Brain*	brain;
+}
 
-public:
-	Cat();
-	~Cat();
-	Cat(const Cat&);
-	Cat&	operator=(const Cat&);
+MateriaSource::~MateriaSource()
+{
+}
 
-   void		makeSound(void) const;
-   Brain*	getBrain(void);
-};
-	
+MateriaSource::MateriaSource(MateriaSource& other)
+{
+    
+}
+
+MateriaSource&  MateriaSource::operator=(MateriaSource& rhs)
+{
+    
+}
+
+void MateriaSource::learnMateria(AMateria*)
+{
+    
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    
+}
