@@ -6,29 +6,29 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 10:06:34 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/10 15:00:00 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 14:34:49 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Ice.hpp"
 
-Ice::Ice(/* args */)
+Ice::Ice()
 {
-    type = "ice";
+    Type = "ice";
 }
 
 Ice::~Ice()
 {
 }
 
-Ice::Ice(Ice&)
+Ice::Ice(Ice& other)
 {
-
+    *this = other;
 }
 
 Ice&    Ice::operator=(Ice&)
 {
-    
+    return (*this);
 }
 
 AMateria* Ice::clone() const
@@ -41,5 +41,5 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-    std::cout << "shoots an ice bolt at " << target.getName() << std::endl; 
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl; 
 }

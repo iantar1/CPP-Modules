@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:55:02 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/10 14:51:11 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 12:38:13 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 
 //AMateria&   operator=(AMateria&);
 
+class	ICharacter;
+
 class AMateria
 {
 protected:
-	std::string	type;
+	std::string	Type;
+
 public:
 	AMateria();
 	~AMateria();
