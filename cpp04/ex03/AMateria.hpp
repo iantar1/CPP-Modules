@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:55:02 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 12:38:13 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 21:10:30 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ protected:
 
 public:
 	AMateria();
-	~AMateria();
+	virtual ~AMateria();
 	AMateria(std::string const & type);
-	AMateria&	operator=(AMateria&);
+	AMateria&	operator=(const AMateria&);
+    AMateria(const AMateria&);
 
-	std::string const & getType() const; //Returns the materia type
+	std::string const & getType() const;
 	virtual void use(ICharacter& target);
+
 	virtual AMateria* clone() const = 0;
 };

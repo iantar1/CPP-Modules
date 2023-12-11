@@ -6,40 +6,36 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 10:06:41 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 14:35:01 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 21:10:11 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Cure.hpp"
 
-Cure::Cure()
+Cure::Cure(): AMateria("cure")
 {
-    Type = "cure";
+    
 }
 
 Cure::~Cure()
 {
 }
 
-Cure::Cure(Cure& other)
+Cure::Cure(const Cure& other): AMateria(other)
 {
-    *this = other;
 }
 
-Cure&   Cure::operator=(Cure&)
+Cure&   Cure::operator=(const Cure&)
 {
     return (*this);
 }
 
 AMateria* Cure::clone() const
 {
-    AMateria*   rtn;
-
-    rtn = new Cure;
-    return (rtn);
+    return (new Cure());
 }
 
 void Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl; 
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl; 
 }

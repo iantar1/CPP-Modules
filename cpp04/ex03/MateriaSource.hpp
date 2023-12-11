@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:23:23 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 16:00:01 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 21:25:09 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ private:
 public:
     MateriaSource(/* args */);
     ~MateriaSource();
-    MateriaSource(MateriaSource&);
-    MateriaSource&  operator=(MateriaSource&);
+    MateriaSource(const MateriaSource&);
+    MateriaSource&  operator=(const MateriaSource&);
 
     void learnMateria(AMateria*);
     AMateria* createMateria(std::string const & type);

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 10:06:34 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 14:34:49 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 21:10:02 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,18 @@ Ice::~Ice()
 {
 }
 
-Ice::Ice(Ice& other)
+Ice::Ice(const Ice& other): AMateria(other)
 {
-    *this = other;
 }
 
-Ice&    Ice::operator=(Ice&)
+Ice&    Ice::operator=(const Ice&)
 {
     return (*this);
 }
 
 AMateria* Ice::clone() const
 {
-    AMateria*   rtn;
-
-    rtn = new Ice;
-    return (rtn);
+    return (new Ice());
 }
 
 void Ice::use(ICharacter& target)

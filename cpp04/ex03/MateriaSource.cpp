@@ -6,85 +6,91 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:23:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 16:06:43 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 21:38:50 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "MateriaSource.hpp"
 
-
-// int	MateriaSource::grb = 0;
-// t_lst*	MateriaSource::lastAddr = NULL;
-// t_lst*	MateriaSource::firstAddr = NULL;
-
 MateriaSource::MateriaSource()
 {
-    std::cout << "MateriaSource constructor\n";
-    grb = 0;
+	grb = 0;
 	firstAddr = NULL;
 	lastAddr = NULL;
-    for (int i = 0; i < 4; i++)
-    {
-        slot[i] = NULL;
-    }
+	for (int i = 0; i < 4; i++)
+		slot[i] = NULL;
 }
 
 MateriaSource::~MateriaSource()
 {
-    
-	AMateria*   tmp;
+	t_lst*      lst_tmp;
 
-    for (int i = 0; i < grb; i++)
-    {
-        //std::cout << firstAddr << "\n";
-        //std::cout << grb << "\n";
-        tmp = firstAddr->addr;
-        std::cout << firstAddr << "\n";
-        delete tmp;
-        firstAddr = firstAddr->next;
-    }
+	for (int i = 0; i < grb; i++)
+	{
+		delete firstAddr->addr;
+		lst_tmp = firstAddr->next;
+		delete firstAddr;
+		firstAddr = lst_tmp;
+	}
 }
 
-MateriaSource::MateriaSource(MateriaSource& )
+MateriaSource::MateriaSource(const MateriaSource& other)
 {
-    
+	*this = other;
 }
 
-MateriaSource&  MateriaSource::operator=(MateriaSource&)
+MateriaSource&  MateriaSource::operator=(const MateriaSource& other)
 {
-    return (*this);
+	if (this == &other)
+		return (*this);
+	for (int i = 0; i < 4; i++)
+	{
+		if (slot[i])
+		{
+			delete slot[i];
+			slot[i] = NULL;
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		if (other.slot[i])
+		{
+			slot[i] = other.slot[i]->clone();
+		}
+	}
+	return (*this);
 }
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-    for (int i = 0; i < 4; i++)
-    {
-        if (slot[i] == m)
-            return ;
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        if (slot[i] == NULL)
-        {
-            slot[i] = m;
-            garbageCollector(m);
-            return ;
-        }
-    }
-    garbageCollector(m);
+	for (int i = 0; i < 4; i++)
+	{
+		if (slot[i] == m)
+			return ;
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		if (slot[i] == NULL)
+		{
+			slot[i] = m;
+			garbageCollector(m);
+			return ;
+		}
+	}
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    if (type.compare("ice") && type.compare("cure"))
-        return (NULL);
-    
-    for (int i = 0; i < 4; i++)
-    {
-        if (slot[i] && type.compare(slot[i]->getType()) == 0)
-            return (slot[i]);
-    }
-    return (NULL);
+	if (type.compare("ice") && type.compare("cure"))
+		return (NULL);
+	
+	for (int i = 0; i < 4; i++)
+	{
+		if (slot[i] && slot[i]->getType() == type)
+			return (slot[i]->clone());
+	}
+	return (NULL);
 }
 
 void	MateriaSource::garbageCollector(AMateria* ptr)
@@ -102,8 +108,7 @@ void	MateriaSource::garbageCollector(AMateria* ptr)
 		lastAddr->next = new t_lst;
 		lastAddr = lastAddr->next;
 		lastAddr->addr = ptr;
-		firstAddr->next = NULL;
+		lastAddr->next = NULL;
 		grb++;
 	}
-    std::cout << "grb :" << grb << "\n";
 }

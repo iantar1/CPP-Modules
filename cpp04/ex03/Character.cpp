@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:19:08 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 14:34:00 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 21:42:37 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 # include "Cure.hpp"
 # include "Ice.hpp"
 
-int	Character::grb = 0;
-t_lst*	Character::lastAddr = NULL;
-t_lst*	Character::firstAddr = NULL;
-
-Character::Character()
+Character::Character():grb(0), firstAddr(NULL), lastAddr(NULL)
 {
 	for (int i = 0; i < 4; i++)
 		slot[i] = NULL;
 }
 
-Character::Character(const std::string& name): Name(name)
+Character::Character(const std::string& name): Name(name), grb(0), firstAddr(NULL), lastAddr(NULL)
 {
 	for (int i = 0; i < 4; i++)
 		slot[i] = NULL;
@@ -33,22 +29,23 @@ Character::Character(const std::string& name): Name(name)
 
 Character::~Character()
 {
-	//t_lst	*tmp;
+	t_lst*      lst_tmp;
 
-	// for (int i = 0; i < grb; i++)
-	// {
-	// 	tmp = firstAddr->next;
-	// 	delete firstAddr;
-	// 	firstAddr = tmp;
-	// }
+	for (int i = 0; i < grb; i++)
+	{
+		delete firstAddr->addr;
+		lst_tmp = firstAddr->next;
+		delete firstAddr;
+		firstAddr = lst_tmp;
+	}
 }
 
-Character::Character(Character& other)
+Character::Character(const Character& other): grb(0), firstAddr(NULL), lastAddr(NULL)
 {
 	*this = other;
 }
 
-Character&  Character::operator=(Character& rhs)
+Character&  Character::operator=(const Character& rhs)
 {
 	if (this == &rhs)
 		return (*this);
@@ -57,16 +54,8 @@ Character&  Character::operator=(Character& rhs)
 	{
 		if (rhs.slot[i])
 		{
-			if ((rhs.slot[i]->getType()).compare("cure") == 0)
-			{
-				this->slot[i] = new Cure;
-				garbageCollector(this->slot[i]);
-			}
-			else if ((rhs.slot[i]->getType()).compare("Ice") == 0)
-			{
-				this->slot[i] = new Ice;
-				garbageCollector(this->slot[i]);
-			}
+			this->slot[i] = rhs.slot[i]->clone();
+			garbageCollector(this->slot[i]);
 		}
 	}
 	return (*this);
@@ -88,6 +77,7 @@ void Character::equip(AMateria* m)
 			return ;
 		}
 	}
+	delete m;
 }
 
 void Character::unequip(int idx)
@@ -121,7 +111,7 @@ void	Character::garbageCollector(AMateria* ptr)
 		lastAddr->next = new t_lst;
 		lastAddr = lastAddr->next;
 		lastAddr->addr = ptr;
-		firstAddr->next = NULL;
+		lastAddr->next = NULL;
 		grb++;
 	}
 }

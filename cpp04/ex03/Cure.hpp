@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 10:06:44 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 11:18:36 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/11 21:10:15 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ private:
 public:
     Cure();
     ~Cure();
-    Cure(Cure&);
-    Cure&   operator=(Cure&);
+    Cure(const Cure&);
+    Cure&   operator=(const Cure&);
     
     AMateria* clone() const;
     void use(ICharacter& target);
