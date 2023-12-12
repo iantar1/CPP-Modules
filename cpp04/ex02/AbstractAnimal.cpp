@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AbstratAnimal.cpp                                         :+:      :+:    :+:   */
+/*   AbstractAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "AbstratAnimal.hpp"
+# include "AbstractAnimal.hpp"
 
-AbstratAnimal::AbstratAnimal()
+AbstractAnimal::AbstractAnimal()
 {
-	type = "AbstratAnimal";
-	std::cout << "AbstratAnimal's default constructor colled" << std::endl;
+	type = "AbstractAnimal";
+	std::cout << "AbstractAnimal's default constructor colled" << std::endl;
 }
 
-AbstratAnimal::AbstratAnimal(const AbstratAnimal& other)
+AbstractAnimal::AbstractAnimal(const AbstractAnimal& other)
 {
 	*this = other;
 }
 
-AbstratAnimal&	AbstratAnimal::operator=(const AbstratAnimal& rhs)
+AbstractAnimal&	AbstractAnimal::operator=(const AbstractAnimal& rhs)
 {
+	std::cout << "AbstractAnimal's copy assingement operator called" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	this->type = rhs.type;
-	std::cout << "AbstratAnimal's copy assingement operator called" << std::endl;
 	return (*this);
 }
 
-AbstratAnimal::~AbstratAnimal()
+AbstractAnimal::~AbstractAnimal()
 {
-	std::cout << "AbstratAnimal's destructor colled" << std::endl;
+	std::cout << "AbstractAnimal's destructor colled" << std::endl;
 }
 
-const std::string&  AbstratAnimal::getType(void) const
+const std::string&  AbstractAnimal::getType(void) const
 {
 	return (type);	
 }

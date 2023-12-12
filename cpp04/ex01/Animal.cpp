@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:56:00 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/09 10:10:34 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/12 12:00:16 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Animal::Animal()
 
 Animal::Animal(const Animal& other)
 {
+	std::cout << "Animal's copy constructor called" << std::endl;
 	*this = other;
 }
 

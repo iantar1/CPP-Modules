@@ -6,20 +6,20 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:56:00 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/08 15:15:36 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:24:05 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal(): type("Animal")
 {
-	type = "Animal";
 	std::cout << "Animal's default constructor colled\n";
 }
 
 Animal::Animal(const Animal& other)
 {
+	std::cout << "Animal's copy constructor called\n";
 	*this = other;
 }
 

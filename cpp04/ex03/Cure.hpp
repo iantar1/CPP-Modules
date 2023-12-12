@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 10:06:44 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 21:10:15 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/12 09:20:57 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 
 class Cure: public AMateria
 {
-private:
-    /* data */
+    
 public:
     Cure();
     ~Cure();
@@ -26,5 +25,5 @@ public:
     
     AMateria* clone() const;
     void use(ICharacter& target);
-};
 
+};

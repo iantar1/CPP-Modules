@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 12:55:26 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/11 21:43:56 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/12 10:32:33 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,139 +15,78 @@
 # include "MateriaSource.hpp"
 # include <iostream>
 
-// void    mainTest()
-// {
-//     IMateriaSource* src = new MateriaSource();
-//     src->learnMateria(new Ice());
-//     src->learnMateria(new Cure());
+void    mainTest()
+{
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
     
-//     ICharacter* me = new Character("me");
+    ICharacter* me = new Character("me");
 
-//     AMateria* tmp;
-//     tmp = src->createMateria("ice");
-//     me->equip(tmp);
-//     tmp = src->createMateria("cure");
-//     me->equip(tmp);
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
 
-//     ICharacter* bob = new Character("bob");
+    ICharacter* bob = new Character("bob");
 
-//     me->use(0, *bob);
-//     me->use(1, *bob);
+    me->use(0, *bob);
+    me->use(1, *bob);
 
-//     delete bob;
-//     delete me;
-//     delete src;
-// }
-
-// int main()
-// {
-//     MateriaSource   obj1;
-//     AMateria    *matr1;
-
-//     obj1.learnMateria(new Ice());
-//     matr1 = obj1.createMateria("ice");
-    
-//     std::cout << matr1->getType();
-//     //MateriaSource   obj2(obj1);
-    
-//     return 0;
-// }
-
-
-
-# include "Ice.hpp"
-# include "Cure.hpp"
-# include "MateriaSource.hpp"
-# include "Character.hpp"
-
-void	basic_test1()
-{
-	AMateria *ptr1 = new Ice();
-	AMateria *ptr2 = new Cure();
-
-	std::cout << "Before:" << std::endl << std::endl;
-	std::cout << ptr1->getType() << std::endl;
-	std::cout << ptr2->getType() << std::endl;
-	*ptr1 = *ptr2;
-
-	std::cout << "After:" << std::endl << std::endl;
-	std::cout << ptr1->getType() << std::endl;
-	std::cout << ptr2->getType() << std::endl;
-
-	delete ptr1;
-	delete ptr2;
+    delete bob;
+    delete me;
+    delete src;
 }
 
-void	basic_test2()
+void	charTest()
 {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
-	delete src;
+	ICharacter *shrif = new Character("shrif");
+
+	for (int i = 0; i < 7; i++)
+		shrif->equip(new Ice());
+
+	for (int i = -5; i < 1; i++)
+		shrif->unequip(i);
+
+	for (int i = 0; i < 2; i++)
+		shrif->equip(new Cure());
+	
+
+	for (int i = -2; i < 6; i++)
+		shrif->use(i, *shrif);
+	delete shrif;	
 }
 
-void	basic_test3()
+void	materiaTest()
 {
-	IMateriaSource *src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Ice());
-	delete src;
-}
+	AMateria*	materia1 = new Cure();
+	AMateria*	materia2 = new Ice();
+	ICharacter*	character1 = new Character();
 
-void	basic_test4()
-{
-	IMateriaSource *src = new MateriaSource();
-	src->learnMateria(NULL);
+	Character	objChar("Tashfin");
+	ICharacter*	ptrChater = new Character(objChar);
 
-	ICharacter *me = new Character("me");
-	me->equip(NULL);
-	delete src;
-	delete me;
-}
+	AMateria* clonedMateria =  materia1->clone();
+	std::cout << "clonedMateria's type: " << clonedMateria->getType() << std::endl;
+	clonedMateria->use(*character1);
 
-void	basic_test5()
-{
-	ICharacter *bob = new Character("bob");
+	std::cout << "materia2's type: " << materia2->getType() << std::endl;
+	materia2->use(*ptrChater);
+	
+	*materia1 = *materia2;
 
-	bob->equip(new Ice());
-	bob->equip(new Ice());
-	bob->equip(new Ice());
-	bob->equip(new Ice());
-	bob->equip(new Ice());
-	bob->equip(new Ice());
-	delete bob;	
-}
-
-void	basic_test6()
-{
-	ICharacter *bob = new Character("bob");
-
-	bob->equip(new Ice());
-	bob->unequip(0);
-	delete bob;
+	delete materia1;
+	delete materia2;
+	delete character1;
+	delete ptrChater;
+	delete clonedMateria;
 }
 
 int main()
 {
-	basic_test1();
-	basic_test2();
-	basic_test3();
-	basic_test4();
-	basic_test5();
-	basic_test6();
+	//mainTest();
+	//materiaTest();
+	//charTest();
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:55:45 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/08 15:19:51 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/12 10:55:48 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,15 @@ Dog::Dog()
 	this->type = DOG;
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other) : Animal(other)
 {
-	*this = other;
 	std::cout << "Dog's copy constructor called\n";
 }
 
 Dog&	Dog::operator=(const Dog& rhs)
 {
-	if (this == &rhs)
-		return (*this);
-	this->type = rhs.type;
 	std::cout << "Dog's copy assingement operator called\n";
+	Animal::operator=(rhs);
 	return (*this);
 }
 

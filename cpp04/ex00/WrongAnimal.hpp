@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 11:14:05 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/08 15:30:47 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/12 12:04:48 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # include <iostream>
 
-# define WRONGANIMAL "wrong animal"
+# define WRONGANIMAL "shalom shalom..."
 
 class WrongAnimal
 {
