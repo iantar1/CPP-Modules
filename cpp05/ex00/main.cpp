@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:45:08 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/14 17:46:24 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/15 09:53:53 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    mainTest()
 {
-    Bureaucrat  bur1(150);
+    Bureaucrat  bur1(150, "Agadir");
     Bureaucrat  bur2(bur1);
 
     std::cout << "The name is: " << bur1.getName() << std::endl;
@@ -26,9 +26,9 @@ void    mainTest()
 
 void    badGradeTest()
 {
-    Bureaucrat  bur1(1);
-    Bureaucrat  bur2(-1);
-    Bureaucrat  bur3(201);
+    Bureaucrat  bur1(1, "Tinghir");
+    Bureaucrat  bur2(-1, "Azro");
+    Bureaucrat  bur3(201, "L3ttawya");
     
     Bureaucrat  burX(bur1);
     burX.GradeIncrement();
@@ -46,9 +46,16 @@ void    insertion()
 
 int main(void)
 {
-    //mainTest();
-    //badGrade();
-    //insertion();
-    
+    try
+    {
+        mainTest();
+        badGradeTest();
+        insertion();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+       
     return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:45:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/14 18:24:48 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/16 11:43:53 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,14 @@ void    Bureaucrat::GradeDecrement()
 	if (getGrade() == 150)
 		throw Bureaucrat::GradeTooHighException();
 	Grade++;
+}
+
+void	Bureaucrat::signForm(const Form& form)
+{
+	if (form.getIsSingn())
+		std::cout << Name << " signed " << form.getName() << "'s form" << std::endl;
+	else
+	{
+		std::cout << Name << " couldn't sign  " << form.getName() << "'s form because " << " its grade not higher enough " << std::endl;
+	}
 }

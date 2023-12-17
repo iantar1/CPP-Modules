@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:45:13 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/15 09:47:02 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/16 11:31:36 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include <iostream>
 # include <exception>
 #include <cstdlib>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -53,6 +56,7 @@ public:
 	void				GradeIncrement();
 	void				GradeDecrement();
 
+	void				signForm(const Form&);
 };
 
 std::ostream&    operator<<(std::ostream&, const Bureaucrat&);
