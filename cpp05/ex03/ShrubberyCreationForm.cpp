@@ -6,13 +6,13 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:47:35 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/25 16:09:34 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/26 12:06:04 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("AForm", 145, 137), Target("target")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), Target("target")
 {
 }
 
@@ -20,7 +20,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("AForm", 145, 137), Target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("ShrubberyCreationForm", 145, 137), Target(target)
 {
 }
 

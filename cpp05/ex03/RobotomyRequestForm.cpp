@@ -6,17 +6,17 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:47:27 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/25 15:58:52 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/26 12:05:47 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("AForm", 72, 45), Target("target")
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), Target("target")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("AForm", 72, 45), Target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 72, 45), Target(target)
 {
 }
 

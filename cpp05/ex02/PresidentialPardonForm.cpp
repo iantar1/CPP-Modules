@@ -6,17 +6,17 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:47:21 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/25 15:54:53 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/26 12:07:34 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("AForm", 25, 5), Target("target")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), Target("target")
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("AForm", 25, 5), Target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), Target(target)
 {
 
 }

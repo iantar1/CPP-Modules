@@ -6,11 +6,12 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:45:08 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/25 17:04:20 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/26 12:05:15 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
+# include "Intern.hpp"
 
 void    test1()
 {
@@ -30,6 +31,10 @@ void    test4()
 
 int main(void)
 {
+    Intern someRandomIntern;
+    AForm* rrf;
+    rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Bender");
+    std::cout << rrf->getName() << std::endl;
     std::cout << std::endl  << "-------------------test1-----------------------" << std::endl << std::endl;
     try
     {
