@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 11:22:37 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/29 17:50:54 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/31 18:18:21 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,59 @@ Base * generate(void)
 {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	if (std::rand() % 3 == 0)
+	{
+		std::cout << "it generates A" << std::endl;
 		return (new A());
+	}
 	else if (std::rand() % 3 == 1)
+	{
+		std::cout << "it generates B" << std::endl;
 		return (new B());
+	}
+	std::cout << "it generates C" << std::endl;
 	return (new C());
 }
 
 void identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
+		std::cout << "identifer: A" << std::endl;
 	if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
+		std::cout << "identifer: B" << std::endl;
 	if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
+		std::cout << "identifer: C" << std::endl;
 }
 
 void identify(Base& p)
 {
-	(void)p;
+	try
+	{
+		A&	a = dynamic_cast<A&>(p);
+		(void)a;
+		std::cout << "identifer: A" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		//std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		B&	b = dynamic_cast<B&>(p);
+		(void)b;
+		std::cout << "identifer: B" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		//std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		C&	c = dynamic_cast<C&>(p);
+		(void)c;
+		std::cout << "identifer: C" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		//std::cerr << e.what() << std::endl;
+	}
 }
