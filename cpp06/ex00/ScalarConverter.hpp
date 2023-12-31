@@ -6,14 +6,20 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:41 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/27 14:39:46 by iantar           ###   ########.fr       */
+/*   Updated: 2023/12/29 10:58:48 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# pragma once
 
 # include <iostream>
 # include <exception>
 # include <cstdlib>
 # include <string>
+# include <cctype>
+# include <climits>
+# include <float.h>
+# include <iomanip>
 # define DEFAULT ""
 
 class ScalarConverter
@@ -58,4 +64,5 @@ public:
 	static int		intConvert(const std::string&);
 	static float	floatConvert(const std::string&);
 	static double	doubleConvert(const std::string&);
+	static void		invalid(size_t, const std::string&);
 };
