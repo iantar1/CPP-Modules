@@ -77,16 +77,15 @@ Base* getObject(bool returnDerived)
 	else
 		return new Base{2};
 }
-
+#include <string>
 int main()
 {
-	Base* b{ getObject(0) };
+	std::string str = "hello";
+	//std::string str = "azul";
 
-	Derived* d{ dynamic_cast<Derived*>(b) }; // use dynamic cast to convert Base pointer into Derived pointer
+//	temp = literal.c_str() + (literal[0] == '+' || literal[0] == '-');
 
-	std::cout << "The name of the Derived is: " << d << '\n';
-    //std::cout << "The name of the Derived is: " << b->getName() << '\n';
-	delete b;
-
-	return 0;
+	std::string s = str.c_str() + 1;
+	std::cout << s << std::endl;
+	return (0);
 }

@@ -1,24 +1,25 @@
-NAME = convert
+NAME = iter
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-
 RM = rm -f
 
-SRC = main.cpp ScalarConverter.cpp
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-OBJ = ${SRC:.cpp=.o}
+SRC = main.cpp
 
 %.o : %.cpp %.hpp
 	${CXX} ${CXXFLAGS} -c $< -o $@
+
+OBJ = ${SRC:.cpp=.o}
+
 
 ${NAME} : ${OBJ}
 	${CXX} ${CXXFLAGS} ${OBJ} -o ${NAME}
 
 all : ${NAME}
 
-clean:
+clean :
 	${RM} ${OBJ}
 
 fclean : clean

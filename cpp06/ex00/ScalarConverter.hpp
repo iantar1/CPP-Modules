@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:41 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/29 10:58:48 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/01 10:20:36 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@
 # include <climits>
 # include <float.h>
 # include <iomanip>
+# include <limits>
 # define DEFAULT ""
+
+# define _MIN_FLT -340282346638528859811704183484516925440.0000000000000000
 
 class ScalarConverter
 {
-private:
-	const std::string	str;
-
+// private:
+// 	const std::string	str;
 private:
 	class InvalidIput : public std::exception
 	{
