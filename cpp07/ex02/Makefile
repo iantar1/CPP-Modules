@@ -6,9 +6,9 @@ RM = rm -f
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = main.cpp Array.cpp
+SRC = main.cpp
 
-%.o : %.cpp %.hpp
+%.o : %.hpp %.cpp 
 	${CXX} ${CXXFLAGS} -c $< -o $@
 
 OBJ = ${SRC:.cpp=.o}

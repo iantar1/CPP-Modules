@@ -35,6 +35,7 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
+
     try
     {
         numbers[MAX_VAL] = 0;
