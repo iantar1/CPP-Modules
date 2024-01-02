@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:45:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/16 11:43:53 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/02 11:39:55 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,16 @@ void    Bureaucrat::GradeDecrement()
 	Grade++;
 }
 
-void	Bureaucrat::signForm(const Form& form)
+void	Bureaucrat::signForm(Form& form) const
 {
-	if (form.getIsSingn())
-		std::cout << Name << " signed " << form.getName() << "'s form" << std::endl;
-	else
+	try
 	{
-		std::cout << Name << " couldn't sign  " << form.getName() << "'s form because " << " its grade not higher enough " << std::endl;
+		form.beSigned(*this);
+		std::cout << Name << " signed " << form.getName() << "'s form" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << Name << " couldn't sign  " << form.getName() << "'s form because ";
+		std::cout << " its grade not higher enough " << std::endl;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 09:55:40 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/16 11:30:18 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/02 11:09:16 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ class Bureaucrat;
 
 class Form
 {
+
 private:
 	const std::string	Name;
 	bool				IsSigned;
 	const int			GradeToSign;
 	const int			GradeToExec;
 
+private:
 	class GradeTooHighException : public std::exception
 	{
 	public:

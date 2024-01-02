@@ -14,6 +14,7 @@
 
 # include <exception>
 # include "Bureaucrat.hpp"
+
 # define DEFAULT 75
 class Bureaucrat; 
 
@@ -25,6 +26,7 @@ private:
 	const int			GradeToSign;
 	const int			GradeToExec;
 
+private:
 	class GradeTooHighException : public std::exception
 	{
 	public:

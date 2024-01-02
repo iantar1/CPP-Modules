@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:45:13 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/16 11:31:36 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/02 11:40:15 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ public:
 	void				GradeIncrement();
 	void				GradeDecrement();
 
-	void				signForm(const Form&);
+	void				signForm(Form&) const;
 };
 
 std::ostream&    operator<<(std::ostream&, const Bureaucrat&);
