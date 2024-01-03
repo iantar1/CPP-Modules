@@ -1,0 +1,10 @@
+
+decleare static vars : ConverChar, ConvInt, CnvFlot, ConvDouble
+
+create a static function that will check for a valid input -> invalid(const std::string&), it will throw an exeption "imposible"
+!!(check for "+inff" , "-inff" and "nanf) and if the result finish with ".0f"
+
+example of invlid input: 0..1 aa .. -> more then one char-{.}, 
+
+
+after checking for the invalid 

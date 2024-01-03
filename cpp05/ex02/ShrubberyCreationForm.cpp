@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:47:35 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/02 12:14:48 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/02 13:14:35 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ShrubberyCreationForm&  ShrubberyCreationForm::operator=(const ShrubberyCreation
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	std::string			shrubberyTree = "     	   ^\n"
+	std::string			shrubberyTree = "          ^\n"
 										"         ^^^\n"
 										"       ^^^o^^^\n"
 										"     ^^^^o^^^o^^\n"

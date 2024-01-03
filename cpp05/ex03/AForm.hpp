@@ -83,7 +83,7 @@ protected:
 public:
 	AForm();
 	AForm(const std::string&, int, int);
-	~AForm();
+	virtual ~AForm();
 	AForm(const AForm&);
 	AForm&	operator=(const AForm&);
 

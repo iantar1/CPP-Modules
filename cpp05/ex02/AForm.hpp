@@ -85,7 +85,7 @@ protected:
 public:
 	AForm();
 	AForm(const std::string&, int, int);
-	~AForm();
+	virtual ~AForm();
 	AForm(const AForm&);
 	AForm&	operator=(const AForm&);
 
@@ -98,4 +98,4 @@ public:
 	virtual void		execute(Bureaucrat const & executor) const = 0;
 };
 
-const std::ostream&	operator<<(std::ostream&, const AForm&);
+std::ostream&	operator<<(std::ostream&, const AForm&);

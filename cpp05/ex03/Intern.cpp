@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 21:06:42 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/26 12:02:12 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/02 15:13:34 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ Intern::Intern(const Intern& other)
 Intern& Intern::operator=(const Intern&)
 {
 	return (*this);
-}
-
-Intern::~Intern()
-{
 }
 
 AForm*	Intern::Presid(const std::string& target) const
@@ -62,4 +58,8 @@ AForm*	Intern::makeForm(const std::string& formName, const std::string& target)
 		}
 	}
 	return (NULL);
+}
+
+Intern::~Intern()
+{
 }

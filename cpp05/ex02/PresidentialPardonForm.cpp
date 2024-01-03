@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:47:21 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/26 12:07:34 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/02 14:57:50 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,35 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), Target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5),
+																		Target(target)
 {
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other.getName(), other.getGradeToSign(), other.getGradeToExec()), Target(other.Target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other.getName(), other.getGradeToSign(), other.getGradeToExec()),
+																					Target(other.Target)
 {
 }
 
 PresidentialPardonForm&    PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs)
 {
-    if (this == &rhs)
-        return (*this);
-    AForm::operator=(rhs);
-    Target = rhs.Target;
-    return (*this);
+	if (this == &rhs)
+		return (*this);
+	AForm::operator=(rhs);
+	Target = rhs.Target;
+	return (*this);
 }
-    
+	
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    if (executor.getGrade() > 45) 
-        throw ExecGradeTooLowException();
-    if (getIsSingn() == false)
+	if (executor.getGrade() > 45) 
+		throw ExecGradeTooLowException();
+	if (getIsSingn() == false)
 		throw FormNotSinged();
-    std::cout << Target << " has been pardoned by Zaphod Beeblebrox\n";
+	std::cout << Target << " has been pardoned by Zaphod Beeblebrox\n";
 }

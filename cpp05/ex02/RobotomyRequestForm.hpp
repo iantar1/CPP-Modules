@@ -6,13 +6,15 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:47:32 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/25 15:58:38 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/02 13:32:27 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # pragma once
 
 # include "AForm.hpp"
+# include <cstdlib>
+# include <ctime>
 
 class RobotomyRequestForm : public AForm
 {
