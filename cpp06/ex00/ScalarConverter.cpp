@@ -6,16 +6,18 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:39 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/03 14:39:52 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/03 21:38:38 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ScalarConverter.hpp"
 
 std::string	ScalarConverter::newStr;
-int			ScalarConverter::flag = 0;
-bool		isCleand = 0;
-std::string	specialVal[4] = {"nanf", "nan", "+inff", "-inff"};
+int			ScalarConverter::SepicialValFlag = 0;
+bool		ScalarConverter::isCleand = 0;
+bool		ScalarConverter::hasAdot = 0;
+bool		ScalarConverter::floatLim = 0;
+std::string	ScalarConverter::specialVal[6] = {"nan","+inf", "-inf", "nanf", "+inff", "-inff"};
 
 ScalarConverter::ScalarConverter() {}
 
@@ -30,20 +32,16 @@ ScalarConverter&    ScalarConverter::operator=(const ScalarConverter&)
 	return (*this);
 }
 
-bool	ScalarConverter::thereIsDot()
+void	ScalarConverter::thereIsDot()
 {
 	for (size_t i = 0; i < newStr.size(); i++)
 	{
 		if (newStr[i] == DOT)
-			return (true);
+			hasAdot = true;
 	}
-	return (false);
 }
 
 
-double	ScalarConverter::doubleConvert(const std::string& str)
-{
-}
 
 void	ScalarConverter::cleanStr(std::string str)
 {
@@ -53,10 +51,18 @@ void	ScalarConverter::cleanStr(std::string str)
 		return ;
 	isCleand = CLEAND;
 	sign = false;
-	if (str.size() == 1 || flag)
+	if (str.size() == 1 || SepicialValFlag)
 	{
 		ScalarConverter::newStr = str;
 		return ;
+	}
+	for (int i = 0; i < 6; i++)
+	{
+		if (newStr == specialVal[i])
+		{
+			ScalarConverter::newStr = str;
+			return ;
+		}
 	}
 	str = str.c_str() + (str[0] == PLUS);
 	if (str[0] == MINUS)
@@ -70,6 +76,9 @@ void	ScalarConverter::cleanStr(std::string str)
 		str = "-" + str;
 	if (str[str.size() - 1] == F)
 		str = str.substr(0, str.size() - 1);
+	ScalarConverter::newStr = str;
+	thereIsDot();
+	//std::cout << "\n" << "here:" << newStr << "\n";
 }
 
 char	ScalarConverter::charConvert()
@@ -78,9 +87,9 @@ char	ScalarConverter::charConvert()
 	int		num;
 
 	dot = false;
-	if (flag)
+	if (SepicialValFlag)
 		throw Impossible();
-	for (size_t i; i < newStr.size(); i++)
+	for (size_t i = 0; i < newStr.size(); i++)
 	{
 		if (!dot && i > 3)
 			throw Impossible();
@@ -103,25 +112,20 @@ int ScalarConverter::intConvert()
 	bool	sign;
 
 	dot = false;
-	for (int i = 0; i < 4; i++)
-	{
-		if (newStr == specialVal[i])
-			throw Impossible();
-	}
+	if (SepicialValFlag)
+		throw Impossible();
 	if (newStr[0] == MINUS)
 		sign = true;
 	else
 		sign = false;
 	for (size_t i = 0; i < newStr.size(); i++)
 	{
-		if (dot && ((i > 10 && !sign) || (i > 11 && sign)))
+		if (!dot && ((i > 10 && !sign) || (i > 11 && sign)))
 			throw Impossible();
 		if (newStr[i] == DOT)
 			dot = true;
 	}
 	num = std::strtol(newStr.c_str(), &endptr, DEC_BASE);
-	if (endptr != '\0')
-		throw Impossible();
 	if (num > INT_MAX || num < INT_MIN)
 		throw Impossible();
 	return (static_cast<int>(num));
@@ -129,9 +133,66 @@ int ScalarConverter::intConvert()
 
 float   ScalarConverter::floatConvert()
 {
-	if (flag)
-		return (flag);
-	
+	double	num;
+	char*	endptr;
+	bool	dot;
+	bool	sign;
+
+	dot = false;
+	if (SepicialValFlag)
+		return (SepicialValFlag);
+	if (newStr[0] == MINUS)
+		sign = true;
+	else
+		sign = false;
+	for (size_t i = 0; i < newStr.size(); i++)
+	{
+		if (!dot && (i > 40 && sign))
+			throw Minff();
+		if (!dot && i > 39)
+			throw Pinff();
+		if (newStr[i] == DOT)
+			dot = true;
+	}
+	num = std::strtod(newStr.c_str(), &endptr);
+	if (num > std::numeric_limits<float>::max())
+	{
+		floatLim = PINF;
+		return (PINF);
+	}
+	if (num < std::numeric_limits<float>::min())
+	{
+		floatLim = MINF;
+		return (MINF);
+	}
+	return (static_cast<float>(num));
+}
+
+double	ScalarConverter::doubleConvert()
+{
+		double	num;
+	char*	endptr;
+	bool	dot;
+	bool	sign;
+
+	dot = false;
+	if (SepicialValFlag)
+		return (SepicialValFlag);
+	if (newStr[0] == MINUS)
+		sign = true;
+	else
+		sign = false;
+	for (size_t i = 0; i < newStr.size(); i++)
+	{
+		if (!dot && (i > 310 && sign))
+			throw Minf();
+		if (!dot && i > 309)
+			throw Pinf();
+		if (newStr[i] == DOT)
+			dot = true;
+	}
+	num = std::strtod(newStr.c_str(), &endptr);
+	return (num);
 }
 
 void ScalarConverter::impossible(const std::string& str)
@@ -144,11 +205,11 @@ void ScalarConverter::impossible(const std::string& str)
 	f = false;
 	if (str.size() == 1)
 		return ;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 6; i++)
 	{
-		if (newStr == specialVal[i])
+		if (str == specialVal[i])
 		{
-			flag = i + 1;
+			SepicialValFlag = i + 1;
 			return ;
 		}
 	}
@@ -158,7 +219,7 @@ void ScalarConverter::impossible(const std::string& str)
 		throw Impossible();
 	for (size_t i = 0; i < tmp.size(); i++)
 	{
-		if (!isdigit(tmp[0]) && tmp[i] != DOT && tmp[i] != F)
+		if (!isdigit(tmp[i]) && tmp[i] != DOT && tmp[i] != F)
 			throw Impossible();
 		if (tmp[i] == DOT)
 		{
@@ -175,14 +236,66 @@ void ScalarConverter::impossible(const std::string& str)
 	}
 }
 
-void	ScalarConverter::convert(const std::string&)
+void	ScalarConverter::convert(const std::string& str)
 {
 	try
 	{
+		std::cout << "char: ";
 		impossible(str);
+		cleanStr(str);
+		std::cout << ScalarConverter::charConvert() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		std::cout << "int: ";
+		impossible(str);
+		cleanStr(str);
+		std::cout << ScalarConverter::intConvert() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		//std::cout << std::fixed << std::setprecision(0);
+		std::cout << "float: ";
+		impossible(str);
+		cleanStr(str);
+		if (SepicialValFlag)
+			std::cout << specialVal[(SepicialValFlag - 1) % 3];
+		else if (floatLim)
+			std::cout << specialVal[floatLim + 4];
+		else
+			std::cout << ScalarConverter::floatConvert();
+		if (!floatLim && (hasAdot || SepicialValFlag))
+			std::cout << "f";
+		else if (!hasAdot && !floatLim)
+			std::cout << ".0f";
+		std::cout << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	try
+	{
+		std::cout << "double: ";
+		impossible(str);
+		cleanStr(str);
+		if (SepicialValFlag)
+			std::cout << specialVal[(SepicialValFlag - 1) % 3];
+		else
+			std::cout << ScalarConverter::doubleConvert();
+		if (!hasAdot)
+			std::cout << ".0" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
 	}
 }
