@@ -6,16 +6,14 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 18:20:59 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/29 10:41:59 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/04 15:19:59 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Serializer.hpp"
 
-Serializer::Serializer()// : data.x(1337), data.str("1337")
+Serializer::Serializer()
 {
-    // data.x = 1337; 
-    // data.str = "1337";
 }
 
 Serializer::~Serializer()
@@ -24,8 +22,6 @@ Serializer::~Serializer()
 
 Serializer::Serializer(const Serializer&)
 {
-    // this->data.str = other.data.str;
-    // this->data.x = other.data.x;
 }
 Serializer& Serializer::operator=(const Serializer&)
 {

@@ -6,16 +6,19 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 11:00:04 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/29 11:05:42 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/04 15:46:47 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "B.hpp"
 
-B::B(/* args */)
-{
-}
+B::B() {}
 
-B::~B()
+B::~B() {}
+
+B::B(const B&) {}
+
+B&  B::operator=(const B&)
 {
+    return (*this);
 }

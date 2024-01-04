@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 11:00:04 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/29 11:21:34 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/04 15:47:32 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class C : public Base
 private:
 
 public:
-    C();
-    ~C();
+	C();
+	~C();
+	C(const C&);
+	C&  operator=(const C&);
 };

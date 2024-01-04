@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:39 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/04 10:58:48 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/04 11:07:07 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	ScalarConverter::cleanStr(std::string str)
 		str = str.substr(0, str.size() - 1);
 	ScalarConverter::newStr = str;
 	thereIsDot();
-	//std::cout << "\n" << "here:" << newStr << "\n";
 }
 
 char	ScalarConverter::charConvert()
@@ -156,15 +155,9 @@ float   ScalarConverter::floatConvert()
 	}
 	num = std::strtod(newStr.c_str(), &endptr);
 	if (num > std::numeric_limits<float>::max())
-	{
-		floatLim = PINF;
-		return (PINF);
-	}
+		throw Pinf();
 	if (num < std::numeric_limits<float>::min())
-	{
-		floatLim = MINF;
-		return (MINF);
-	}
+		throw Minf();
 	return (static_cast<float>(num));
 }
 
@@ -192,7 +185,6 @@ double	ScalarConverter::doubleConvert()
 			dot = true;
 	}
 	num = std::strtod(newStr.c_str(), &endptr);
-	//std::cout << "here; " <<num << "\n";
 	return (num);
 }
 
@@ -237,28 +229,6 @@ void ScalarConverter::impossible(const std::string& str)
 	}
 }
 
-bool	ScalarConverter::checkForDot(double num)
-{
-	//std::ostringstream oss;
-	std::string	str;
-	bool		dot;
-	char buffer[300]; // Adjust buffer size as needed
-
-   // std::sprintf(buffer, "%f", num);
-	str = std::string(buffer);
-	(void)num;
-	std::cout << "my str: " << str<< "\n";
-	dot = false;
-	for (size_t i = 0; i < str.size(); i++)
-	{
-		if (dot && str[i] != ZERO)
-			return (true);
-		if (str[i] == DOT)
-			dot = true;
-	}
-	return (false);
-}
-
 void	ScalarConverter::convert(const std::string& str)
 {
 	try
@@ -285,11 +255,9 @@ void	ScalarConverter::convert(const std::string& str)
 	}
 	try
 	{
-		//std::cout << std::fixed << std::setprecision(0);
 		std::cout << "float: ";
 		impossible(str);
 		cleanStr(str);
-		//PRINT(ScalarConverter::floatConvert())
 		if (SepicialValFlag)
 			std::cout << specialVal[(SepicialValFlag - 1) % 3];
 		else if (floatLim)

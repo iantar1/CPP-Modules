@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 10:58:19 by iantar            #+#    #+#             */
-/*   Updated: 2023/12/31 18:13:39 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/04 16:01:34 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void	test3()
 
 int main(void)
 {
-	test3();
+	test2();
 	return (EXIT_SUCCESS);
 }
