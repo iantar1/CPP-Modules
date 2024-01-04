@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:39 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/03 21:38:38 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/04 10:58:48 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ float   ScalarConverter::floatConvert()
 
 double	ScalarConverter::doubleConvert()
 {
-		double	num;
+	double	num;
 	char*	endptr;
 	bool	dot;
 	bool	sign;
@@ -192,6 +192,7 @@ double	ScalarConverter::doubleConvert()
 			dot = true;
 	}
 	num = std::strtod(newStr.c_str(), &endptr);
+	//std::cout << "here; " <<num << "\n";
 	return (num);
 }
 
@@ -236,6 +237,28 @@ void ScalarConverter::impossible(const std::string& str)
 	}
 }
 
+bool	ScalarConverter::checkForDot(double num)
+{
+	//std::ostringstream oss;
+	std::string	str;
+	bool		dot;
+	char buffer[300]; // Adjust buffer size as needed
+
+   // std::sprintf(buffer, "%f", num);
+	str = std::string(buffer);
+	(void)num;
+	std::cout << "my str: " << str<< "\n";
+	dot = false;
+	for (size_t i = 0; i < str.size(); i++)
+	{
+		if (dot && str[i] != ZERO)
+			return (true);
+		if (str[i] == DOT)
+			dot = true;
+	}
+	return (false);
+}
+
 void	ScalarConverter::convert(const std::string& str)
 {
 	try
@@ -266,16 +289,14 @@ void	ScalarConverter::convert(const std::string& str)
 		std::cout << "float: ";
 		impossible(str);
 		cleanStr(str);
+		//PRINT(ScalarConverter::floatConvert())
 		if (SepicialValFlag)
 			std::cout << specialVal[(SepicialValFlag - 1) % 3];
 		else if (floatLim)
 			std::cout << specialVal[floatLim + 4];
 		else
-			std::cout << ScalarConverter::floatConvert();
-		if (!floatLim && (hasAdot || SepicialValFlag))
-			std::cout << "f";
-		else if (!hasAdot && !floatLim)
-			std::cout << ".0f";
+			PRINT(ScalarConverter::floatConvert())
+		std::cout << "f";
 		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
@@ -291,8 +312,6 @@ void	ScalarConverter::convert(const std::string& str)
 			std::cout << specialVal[(SepicialValFlag - 1) % 3];
 		else
 			std::cout << ScalarConverter::doubleConvert();
-		if (!hasAdot)
-			std::cout << ".0" << std::endl;
 	}
 	catch(const std::exception& e)
 	{

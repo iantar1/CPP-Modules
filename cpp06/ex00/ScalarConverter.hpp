@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/03 21:32:45 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/04 10:55:50 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include <float.h>
 # include <iomanip>
 # include <limits>
+#include <cstdio>
+#include <cstring>
+#include <string.h>
 
 # define DEFAULT ""
 # define DOT 46
@@ -33,6 +36,7 @@
 # define DEC_BASE 10
 # define PINF 1
 # define MINF 2
+# define PRINT(a) std::cout << std::fixed << std::setprecision(1) << a;
 
 enum e_flags {NANF = 1, NAN, PINFF , MINFF};
 
@@ -110,4 +114,5 @@ public:
 	static void		impossible(const std::string&);
 	static void		cleanStr(std::string);
 	static void		thereIsDot();
+	static bool		checkForDot(double);
 };
