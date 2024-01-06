@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:50:58 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/02 10:45:06 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/06 12:31:00 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,9 @@ template <typename T>
 class Array
 {
 private:
-// class outOfRangeExeption : public std::exception
-// {
-//     const char* what() const throw ()
-//     {
-//         return ("out of range");
-//     }
-// };
-
-private:
     T*  array;
     size_t len;
+
 public:
     Array();
     Array(unsigned int);
@@ -57,7 +49,7 @@ template <typename T>
 
 T&  Array<T>::operator[](unsigned int index)
 {
-    if (static_cast<int>(index) < 0 || index >= len)
+    if (index >= len)
         throw std::out_of_range("Index out of range");
     return (this->array[index]);
 }
@@ -66,7 +58,7 @@ template <typename T>
 
 const T&  Array<T>::operator[](unsigned int index) const
 {
-    if (static_cast<int>(index) < 0 || index >= len)
+    if (index >= len)
         throw std::out_of_range("Index out of range");
     return (this->array[index]);
 }
@@ -99,8 +91,8 @@ template <typename T>
 
 Array<T>::Array(unsigned int n)
 {
-    len = static_cast<int>(n) > 0 ? n : 0;
-    array = static_cast<int>(n) > 0 ? new T[n] : NULL;
+    len = static_cast<long long>(n) > 0 ? n : 0;
+    array = static_cast<long long>(n) > 0 ? new T[n] : NULL;
 }
 
 template <typename T>

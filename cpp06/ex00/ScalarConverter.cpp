@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:39 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/04 11:07:07 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/05 11:22:43 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ char	ScalarConverter::charConvert()
 		if (newStr[i] == DOT)
 			dot = true;
 	}
+	if (newStr.size() == 1)
+		return (static_cast<char>(newStr[0]));
 	num = std::atoi(newStr.c_str());
 	if (num < 0 || num > 127)
 		throw Impossible();
@@ -105,10 +107,10 @@ char	ScalarConverter::charConvert()
 
 int ScalarConverter::intConvert()
 {
-	long	num;
-	char*	endptr;
-	bool	dot;
-	bool	sign;
+	long				num;
+	bool				dot;
+	bool				sign;
+	std::stringstream	s;
 
 	dot = false;
 	if (SepicialValFlag)
@@ -124,7 +126,12 @@ int ScalarConverter::intConvert()
 		if (newStr[i] == DOT)
 			dot = true;
 	}
-	num = std::strtol(newStr.c_str(), &endptr, DEC_BASE);
+	if (newStr.size() == 1 && !isdigit(static_cast<int>(newStr[0])))
+	{
+		return (static_cast<int>(newStr[0]));
+	}
+	s << newStr;
+	s >> num;
 	if (num > INT_MAX || num < INT_MIN)
 		throw Impossible();
 	return (static_cast<int>(num));
@@ -132,10 +139,9 @@ int ScalarConverter::intConvert()
 
 float   ScalarConverter::floatConvert()
 {
-	double	num;
-	char*	endptr;
-	bool	dot;
-	bool	sign;
+	double				num;
+	bool				dot;
+	bool				sign;
 
 	dot = false;
 	if (SepicialValFlag)
@@ -153,20 +159,23 @@ float   ScalarConverter::floatConvert()
 		if (newStr[i] == DOT)
 			dot = true;
 	}
-	num = std::strtod(newStr.c_str(), &endptr);
+	if (newStr.size() == 1 && !isdigit(static_cast<int>(newStr[0])))
+		return (static_cast<float>(newStr[0]));
+	std::stringstream	s(newStr);
+	s >> num;
 	if (num > std::numeric_limits<float>::max())
 		throw Pinf();
-	if (num < std::numeric_limits<float>::min())
+	if (num < std::numeric_limits<float>::min() && num != 0)
 		throw Minf();
 	return (static_cast<float>(num));
 }
 
 double	ScalarConverter::doubleConvert()
 {
-	double	num;
-	char*	endptr;
-	bool	dot;
-	bool	sign;
+	double				num;
+	std::stringstream	s;
+	bool				dot;
+	bool				sign;
 
 	dot = false;
 	if (SepicialValFlag)
@@ -184,7 +193,10 @@ double	ScalarConverter::doubleConvert()
 		if (newStr[i] == DOT)
 			dot = true;
 	}
-	num = std::strtod(newStr.c_str(), &endptr);
+	if (newStr.size() == 1 && !isdigit(static_cast<int>(newStr[0])))
+		return (static_cast<double>(newStr[0]));
+	s << newStr;
+	s >> num;
 	return (num);
 }
 
@@ -279,7 +291,8 @@ void	ScalarConverter::convert(const std::string& str)
 		if (SepicialValFlag)
 			std::cout << specialVal[(SepicialValFlag - 1) % 3];
 		else
-			std::cout << ScalarConverter::doubleConvert();
+			PRINT(ScalarConverter::doubleConvert())
+		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
 	{

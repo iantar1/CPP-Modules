@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 09:40:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/04 15:13:07 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/05 11:19:19 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <cstdio>
 #include <cstring>
 #include <string.h>
+# include <sstream>
 
 # define DEFAULT ""
 # define DOT 46
