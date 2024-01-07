@@ -1,54 +1,92 @@
 #include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
-int main(int, char**)
+// #define MAX_VAL 750
+// int main(int, char**)
+// {
+//     Array<int> numbers(MAX_VAL);
+//     int* mirror = new int[MAX_VAL];
+//     srand(time(NULL));
+//     for (int i = 0; i < MAX_VAL; i++)
+//     {
+//         const int value = rand();
+//         numbers[i] = value;
+//         mirror[i] = value;
+//     }
+//     //SCOPE
+//     {
+//         Array<int> tmp = numbers;
+//         Array<int> test(tmp);
+//     }
+
+//     for (int i = 0; i < MAX_VAL; i++)
+//     {
+//         if (mirror[i] != numbers[i])
+//         {
+//             std::cerr << "didn't save the same value!!" << std::endl;
+//             return 1;
+//         }
+//     }
+//     try
+//     {
+//         numbers[-2] = 0;
+//     }
+//     catch(const std::exception& e)
+//     {
+//         std::cerr << e.what() << '\n';
+//     }
+
+//     try
+//     {
+//         numbers[MAX_VAL] = 0;
+//     }
+//     catch(const std::exception& e)
+//     {
+//         std::cerr << e.what() << '\n';
+//     }
+
+//     for (int i = 0; i < MAX_VAL; i++)
+//     {
+//         numbers[i] = rand();
+//     }
+//     delete [] mirror;//
+//     return 0;
+// }
+
+int main()
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
+    Array<int>  arr1(5);
+    Array<float>    arr2(5);
+    int i;
+    
+    std::cout << "arr1_Size: " << arr1.size() << std::endl;
+    std::cout << "arr2_Size: " << arr2.size() << std::endl;
+    try
     {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
-    }
-    //SCOPE
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
+        for (i = 0; i < 5; i++)
         {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
+            std::cout << arr1[i] << " ";
+            arr2[i] = static_cast<float>(i) + 0.12f;
         }
-    }
-    try
-    {
-        numbers[-2] = 0;
+        std::cout << std::endl << arr1[i] << std::endl; 
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
-
     try
     {
-        numbers[MAX_VAL] = 0;
+        for (i = 0; i < 5; i++)
+        {
+            std::cout << arr2[i] << " ";
+        }
+        std::cout << std::endl;
+        std::cout << arr2[0xff] << std::endl; 
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
-
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete [] mirror;//
-    return 0;
+    return (0);
 }
+

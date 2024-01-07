@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:52:20 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/06 11:43:12 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/07 10:52:03 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 # include <cstdlib>
 
 
-template <typename T>
+template <typename U>
 
-void	fun_iter(T& a)
+void	fun_iter(U& a)
 {
-	std::cout << a << std::endl;
+	std::cout << a << " ";
 }
 
-template <typename T>
+template <typename T, typename U>
 
-void    iter(T* addr, size_t len, void (*fun)(T&))
+void    iter(T* addr, size_t len, void (*fun)(U&))
 {
     if (fun == NULL || addr == NULL)
         return ;

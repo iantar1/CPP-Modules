@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:50:58 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/06 12:31:00 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/07 12:50:18 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,9 @@ Array<T>&  Array<T>::operator=(const Array<T>& rhs)
 
 template <typename T>
 
-Array<T>::Array(unsigned int n)
+Array<T>::Array(unsigned int n) : len(n)
 {
-    len = static_cast<long long>(n) > 0 ? n : 0;
-    array = static_cast<long long>(n) > 0 ? new T[n] : NULL;
+    array = (n != 0) ? new T[n] : NULL;
 }
 
 template <typename T>
