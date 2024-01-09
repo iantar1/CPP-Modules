@@ -55,7 +55,7 @@
 
 int main()
 {
-    Array<int>  arr1(5);
+    const Array<int>  arr1(5);
     Array<float>    arr2(5);
     int i;
     

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "list": "cpp",
+        "istream": "cpp",
+        "stdexcept": "cpp"
+    }
+}
