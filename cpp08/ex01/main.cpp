@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:16:52 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/09 16:19:03 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/12 21:47:10 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,9 @@ void    manyNumTest()
     std::cout << sp.longestSpan() << std::endl;
 }
 
-void    errorTest()
-{
-    Span sp;
-
-    try
-    {
-        sp.addNumber(10);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-}
-
 int main()
 {
     //defaultTest();
     //manyNumTest();
-    //errorTest();
     return (0);
 }

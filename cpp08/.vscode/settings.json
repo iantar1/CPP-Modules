@@ -6,6 +6,7 @@
         "stack": "cpp",
         "cstdlib": "cpp",
         "iostream": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "ostream": "cpp"
     }
 }

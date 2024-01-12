@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:25:31 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/08 14:27:04 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/12 21:05:17 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void    listTest()
     std::list<int> lst;
 
     lst.push_back(0xff);
-    lst.p
-    ush_front(0xa1);
+    lst.push_front(0xa1);
     try
     {
         int Index;

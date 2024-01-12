@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:17:02 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/09 16:16:10 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/12 21:45:28 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <algorithm>
 # include <list>
+# include <climits>
 
 
 class Span
@@ -24,15 +25,13 @@ class Span
 private:
 //attributes
 	unsigned int		N;
-	unsigned int		cnt;
-	bool				sorted;
-	bool				modifed;
-	int					ShortSpan;
 	std::vector<int>	vect;
+
+// constructor
+	Span();
 
 public:
 //constractors, destructer, copy constructer , copy assignement
-	Span();
 	Span(unsigned int);
 	Span(const Span&);
 	Span&   operator=(const Span&);
@@ -45,13 +44,13 @@ public:
 
 //member function template
 
-	template <typename T>
-	void	addManyNumbers(T begin, T end)
+	template <typename IterType>
+	void	addManyNumbers(IterType begin, IterType end)
 	{
 		while (begin != end)
 		{
-		addNumber(*begin);
-		begin++;
+			addNumber(*begin);
+			begin++;
 		}
 	}
 };
