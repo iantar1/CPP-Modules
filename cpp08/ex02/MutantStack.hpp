@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:08:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/12 11:49:01 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/12 17:57:58 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ template <typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container >
 {
 public:
-	MutantStack() {}
-	~MutantStack() {}
+	MutantStack() : std::stack<T, Container >() {}
 	MutantStack(const MutantStack& other) : std::stack<T, Container >(other) {}
 	MutantStack&	operator=(const MutantStack& rhs)
 	{
 		std::stack<T, Container >::operator=(rhs);
 		return (*this);
 	}
+	~MutantStack() {}
 
 public:
 
@@ -40,10 +40,18 @@ public:
 		ConType	conIter;
 	
 	public:
+	//constractors, copy assingment operator , destructor
+		iterator() : conIter() {}
 		iterator(ConType _conTter_) : conIter(_conTter_){}
-		iterator(iterator&) {}
-		iterator(const iterator&) {}
-		iterator& operator=(const iterator&) {}
+		iterator(const iterator& other) : conIter(other.conIter) {}
+		iterator& operator=(const iterator& rhs)
+		{
+			conIter = rhs.conIter;
+			return (*this);
+		}
+		~iterator() {}
+	
+	// post-incremnet
 		iterator operator++(int)
 		{
 			iterator	tmp;
@@ -52,11 +60,13 @@ public:
 			++conIter;
 			return (tmp);
 		}
+	// pre-increment 
 		iterator& operator++()
 		{
 			++conIter;
 			return (*this);
 		}
+	// post-incremnet
 		iterator operator--(int)
 		{
 			iterator	tmp;
@@ -65,21 +75,22 @@ public:
 			--conIter;
 			return (tmp);
 		}
+	// pre-decrement 
 		iterator& operator--()
 		{
 			--conIter;
 			return (*this);
 		}
+
 		T&	operator*() const
 		{
 			return (*conIter);
 		}
+	
 		bool	operator!=(const iterator& rhs) const
 		{
 			return (conIter != rhs.conIter);
 		}
-		~iterator() {}
-		
 	};
 
 public:
