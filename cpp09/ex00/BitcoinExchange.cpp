@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 13:27:46 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:40:09 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ bool	BitcoinExchange::invalidFileTitle(std::ifstream& inp)
 
 int	BitcoinExchange::getCurentYear()
 {
-	int	year;
+	size_t	year;
 
 	year = time(NULL);
-	return (year / TOYEAR);
+	//std::cout << "->>>>>>    " << static_cast<int>(year / TOYEAR) + 1970 << "   :\n";
+	return (static_cast<int>(year / TOYEAR) + 1970);
 }
 
 void	BitcoinExchange::valideDate(const std::string& year, const std::string& month, const std::string& day)
@@ -61,7 +62,6 @@ void	BitcoinExchange::valideDate(const std::string& year, const std::string& mon
 	int	year_;
 	int	month_;
 	int	day_;
-
 
 	if (year.empty() || month.empty() || day.empty())
 		throw std::runtime_error(ErrorMes);
@@ -72,6 +72,8 @@ void	BitcoinExchange::valideDate(const std::string& year, const std::string& mon
 	{
 		throw std::runtime_error(ErrorMes);
 	}
+	if (year_ < 2008)
+		throw std::runtime_error(ErrorMes);
 	if (month_ > 12 || month_ < 1)
 		throw std::runtime_error(ErrorMes);
 	if (monthDays[month_ - 1] < day_)
@@ -175,8 +177,11 @@ void	BitcoinExchange::bitcoinValue(const std::string& date, float val)
 	std::map<std::string, float>::iterator	iter;
 
 	iter = dataCsv.lower_bound(date);
-	if (dataCsv.count(date) == false)
+
+	if (dataCsv.count(date) == false  && iter != dataCsv.begin())
+	{
 		iter--;
+	}
 	std::cout << date << " => ";
 	std::cout << val << " = ";
 	std::cout << iter->second * val << std::endl;

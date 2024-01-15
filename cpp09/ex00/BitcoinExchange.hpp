@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:46 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 12:44:07 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 13:40:30 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define TITLE "date | value"
 # define SPACE " "
-# define TOYEAR 60 * 60 * 24 * 365
+# define TOYEAR 31536000
 
 enum months {
     Jan = 1,  Feb , Mar , Apr , May , Jun , Jul , Aug , Sep , Oct , Nov , Dec
