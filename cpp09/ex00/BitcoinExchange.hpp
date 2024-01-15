@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:46 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 11:11:34 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:29:54 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ public:
 	static void	errorsCheck(const std::string&);
 	static void	fillMap(std::ifstream&);
 	static void	bitcoinValue(const std::string&, int);
+	static void	bitcoinValue(const std::string&, float);
+	
 // input fiel error checking
 	static bool		invalidFileTitle(std::ifstream&);
 	static void		structLineCheck();
@@ -54,7 +56,9 @@ public:
 	static void		valueCheck(const std::string&);
 	static void		valideDate(const std::string&, const std::string&, const std::string&);
 	static int		getCurentYear();
-	static const	std::string&	getDate(const std::string&)
+	static std::string	getDate(const std::string&);
+	static float			getVal(const std::string&);
+	
 	//static void	checkDay(int, int);
 
 	//static int   ToInt(const std::string&);

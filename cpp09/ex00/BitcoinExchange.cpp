@@ -6,14 +6,14 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 11:11:51 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:40:45 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
 
-std::map<std:::string, float>    BitcoinExchange::dataCsv;
-const std::string BitcoinExchange::title[3] = {"data", "|", "value"};
+std::map<std::string, float>    BitcoinExchange::dataCsv;
+const std::string BitcoinExchange::title[3] = {"date", "|", "value"};
 const int BitcoinExchange::monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 std::string BitcoinExchange::ErrorMes;
 
@@ -35,17 +35,15 @@ bool	BitcoinExchange::invalidFileTitle(std::ifstream& inp)
 	std::string str;
 	std::string word;
 
-	inp >> str;
+	//inp >> str;
+	std::getline(inp, str);
 	std::stringstream tmp(str);
 	for (int i = 0; tmp >> word; i++)
 	{
 		if (i > 3 || title[i] != word)
 			return (true);   
 	}
-	
-	if (str == TITLE)
-		return (false);
-	return (true);
+	return (false);
 }
 
 void	BitcoinExchange::structLineCheck()
@@ -90,7 +88,7 @@ void	BitcoinExchange::dateCheck(const std::string& str)
 	std::string year;
 	std::string month;
 	std::string day;
-	int			i;
+	size_t			i;
 
 	for (i = 0; i < str.size() && isdigit(str[i]); i++)
 		year += str[i];
@@ -168,8 +166,9 @@ void	BitcoinExchange::fillMap(std::ifstream& fcsv)
 {
 	std::string	str;
 
-	fcsv >> str;
-	while (fcsv >> str)
+	//fcsv >> str;
+	std::getline(fcsv, str);
+	while (std::getline(fcsv, str))
 	{
 		dataCsv[str.substr(0, 10)] = atof((str.substr(11)).c_str());
 	}
@@ -197,12 +196,12 @@ float	BitcoinExchange::getVal(const std::string& str)
 	return (atof(word.c_str()));
 }
 
-const std::string&	BitcoinExchange::getDate(const std::string& str)
+std::string	BitcoinExchange::getDate(const std::string& str)
 {
 	std::string word;
 
 	std::stringstream tmp(str);
-	str >> word;
+	tmp >> word;
 	return (word);
 }
 
@@ -218,9 +217,11 @@ void	BitcoinExchange::bitcoinEx(std::ifstream& inp, std::ifstream& fcsv)
 	fillMap(fcsv);
 	while (inp.eof() == false)
 	{
+		//std::cout << "str:" << str << std::endl;
 		try
 		{
-			inp >> str;
+			//inp >> str;
+			std::getline(inp, str);
 			errorsCheck(str);
 			bitcoinValue(getDate(str), getVal(str));
 		}

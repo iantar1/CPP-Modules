@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:48 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 11:13:13 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:13:57 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int ac, char *av[])
         std::cout << "Error: can't open the file" << std::endl;
         return (EXIT_FAILURE);
     }
-    bitcoinEx(inp, fcsv);
+    BitcoinExchange::bitcoinEx(inp, fcsv);
     fcsv.close();
     inp.close();
     return (EXIT_SUCCESS);
