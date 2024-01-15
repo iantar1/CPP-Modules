@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 13:05:50 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 13:27:46 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,16 +110,24 @@ void	BitcoinExchange::dateCheck(const std::string& str)
 void	BitcoinExchange::valueCheck(const std::string& str)
 {
 	std::istringstream	iss(str);
-	float				val;
+	double				val;
 
 // Use noskipws to stop at the first non-whitespace character
-	iss >> std::noskipws >> val;
-// Check if the entire string was successfully converted and there are no trailing characters
-	if (iss.eof() && !iss.fail() == false)
-		throw std::runtime_error("Error: bad input");
 
-	if (val < 0 || val > 1000)
-		throw std::runtime_error("Error: bad input");
+	iss >> std::noskipws >> val;
+	ErrorMes = "Error: bad input => " + str;
+
+// Check if the entire string was successfully converted and there are no trailing characters.
+// if it acheive eof and the entire str successfully converted. if not iss.fail() will return true.
+
+	if (!iss.eof() || iss.fail())
+	{
+		throw std::runtime_error(ErrorMes);
+	}
+	if (val > 1000)
+		throw std::runtime_error("Error: too large a number.");
+	if (val < 0)
+		throw std::runtime_error("Error: not a positive number.");
 }
 
 void	BitcoinExchange::errorsCheck(const std::string& str)
@@ -135,13 +143,18 @@ void	BitcoinExchange::errorsCheck(const std::string& str)
 			dateCheck(word);
 			break;
 		case 1:
-			if (word != "|") throw std::runtime_error("Error: bad input");
+			if (word != "|")
+			{
+				ErrorMes = "Error: bad input => " + word;
+				throw std::runtime_error(ErrorMes);
+			}
 			break;
 		case 2:
 			valueCheck(word);
 			break;
 		default:
-			throw std::runtime_error("Error: bad input");
+			ErrorMes = "Error: bad input => " + word;
+			throw std::runtime_error(ErrorMes);
 			break;
 		}
 	}
