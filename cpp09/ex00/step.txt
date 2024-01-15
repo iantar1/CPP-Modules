@@ -1,0 +1,8 @@
+1: check the title : "date | value" : strcmp() ::>> Desplay error
+
+2: invalid structer of the date : NNNN-NN-NN | F
+    -> split with space : they must , they must be three part , if more or less; --->>> Desplay error
+    -> check '4 nums' + '-' + '2 nums' + '-' + '2 nums' + '|' + '1 float num' : if not --->>> Desplay error
+    -> check the validation of the numbers : the last numer must be between 0 and 1000 : --->>> Desplay error 
+    -> if the date has more then 9 digit : throw "Lah ihdik assmitk" 
+
