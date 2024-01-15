@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:46 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 11:29:54 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:44:07 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,11 @@ public:
 	
 // input fiel error checking
 	static bool		invalidFileTitle(std::ifstream&);
-	static void		structLineCheck();
 	static void		dateCheck(const std::string&);
 	static void		valueCheck(const std::string&);
 	static void		valideDate(const std::string&, const std::string&, const std::string&);
 	static int		getCurentYear();
 	static std::string	getDate(const std::string&);
 	static float			getVal(const std::string&);
-	
-	//static void	checkDay(int, int);
 
-	//static int   ToInt(const std::string&);
 };

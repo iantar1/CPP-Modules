@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 12:40:45 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/15 13:05:50 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,17 @@ bool	BitcoinExchange::invalidFileTitle(std::ifstream& inp)
 	std::string str;
 	std::string word;
 
-	//inp >> str;
 	std::getline(inp, str);
 	std::stringstream tmp(str);
 	for (int i = 0; tmp >> word; i++)
 	{
 		if (i > 3 || title[i] != word)
-			return (true);   
+		{
+			ErrorMes = word;
+			return (true);
+		}
 	}
 	return (false);
-}
-
-void	BitcoinExchange::structLineCheck()
-{
-	
 }
 
 int	BitcoinExchange::getCurentYear()
@@ -59,28 +56,26 @@ int	BitcoinExchange::getCurentYear()
 	return (year / TOYEAR);
 }
 
-// void	BitcoinExchange::checkDay(int month, int day)
-// {
-// }
-
 void	BitcoinExchange::valideDate(const std::string& year, const std::string& month, const std::string& day)
 {
 	int	year_;
 	int	month_;
 	int	day_;
 
+
 	if (year.empty() || month.empty() || day.empty())
-		throw std::runtime_error("Error: bad input");
+		throw std::runtime_error(ErrorMes);
 	year_ = atoi(year.c_str());
 	month_= atoi(month.c_str());
 	day_= atoi(day.c_str());
-
 	if (year_ > BitcoinExchange::getCurentYear())
-		throw std::runtime_error("Error: bad input");
+	{
+		throw std::runtime_error(ErrorMes);
+	}
 	if (month_ > 12 || month_ < 1)
-		throw std::runtime_error("Error: bad input");
+		throw std::runtime_error(ErrorMes);
 	if (monthDays[month_ - 1] < day_)
-		throw std::runtime_error("Error: bad input");	
+		throw std::runtime_error(ErrorMes);	
 }
 
 void	BitcoinExchange::dateCheck(const std::string& str)
@@ -90,23 +85,24 @@ void	BitcoinExchange::dateCheck(const std::string& str)
 	std::string day;
 	size_t			i;
 
+	ErrorMes = "Error: bad input => " + str;
 	for (i = 0; i < str.size() && isdigit(str[i]); i++)
 		year += str[i];
 
 	if (str[i] != '-')
-		throw std::runtime_error("Error: bad input");
+		throw std::runtime_error(ErrorMes);
 
 	for (i++;  i < str.size() && isdigit(str[i]); i++)
 		month += str[i];
 
 	if (str[i] != '-')
-		throw std::runtime_error("Error: bad input");
+		throw std::runtime_error(ErrorMes);
 
 	for (i++;  i < str.size() && isdigit(str[i]); i++)
 		day += str[i];
 
 	if (i != str.size())
-		throw std::runtime_error("Error: bad input");
+		throw std::runtime_error(ErrorMes);
 
 	valideDate(year, month, day);
 }
@@ -125,18 +121,6 @@ void	BitcoinExchange::valueCheck(const std::string& str)
 	if (val < 0 || val > 1000)
 		throw std::runtime_error("Error: bad input");
 }
-
-// int   BitcoinExchange::ToInt(const std::string& str)
-// {
-// 	std::string	rtn;
-
-// 	for (size_t i = 0; i < str.size(); i++)
-// 	{
-// 		if (isdigit(str[i]))
-// 			rtn += str[i];
-// 	}
-// 	return (atoi(rtn.c_str()));
-// }
 
 void	BitcoinExchange::errorsCheck(const std::string& str)
 {
@@ -166,7 +150,6 @@ void	BitcoinExchange::fillMap(std::ifstream& fcsv)
 {
 	std::string	str;
 
-	//fcsv >> str;
 	std::getline(fcsv, str);
 	while (std::getline(fcsv, str))
 	{
@@ -211,17 +194,20 @@ void	BitcoinExchange::bitcoinEx(std::ifstream& inp, std::ifstream& fcsv)
 
 	if (invalidFileTitle(inp))
 	{
-		std::cerr << "invalide input" << std::endl;
+		std::cerr << "Error: invalide Title => " << ErrorMes << std::endl;
 		return ;
 	}
 	fillMap(fcsv);
 	while (inp.eof() == false)
 	{
-		//std::cout << "str:" << str << std::endl;
 		try
 		{
-			//inp >> str;
 			std::getline(inp, str);
+			if (str.empty())
+			{
+				std::cerr << "Error: empty line" << std::endl;
+				continue ;
+			}
 			errorsCheck(str);
 			bitcoinValue(getDate(str), getVal(str));
 		}
