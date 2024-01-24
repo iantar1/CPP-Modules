@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <deque>
+
 # include <algorithm>
 
 
@@ -47,20 +49,8 @@ void	mergeSort(std::vector<int>& Arr,int start, int end)
 int main() {
 
     
-    std::vector<int> Arr = {12, 11, 13, 5, 6, 7};
+    std::deque<int> Arr = {12, 11, 13, 5, 6, 7};
 
-    std::cout << "Original array: ";
-    for (int num : Arr) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
-    mergeSort(Arr, 0, Arr.size() - 1);
-    std::cout << "Sorted Array: ";
-    for (int num : Arr) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
+    std::cout << Arr[2] ;
     return 0;
 }

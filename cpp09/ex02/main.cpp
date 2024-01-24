@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:56:13 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/24 17:46:54 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/24 18:12:21 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ int main(int ac, char *av[])
     try
     {
         for (int i = 1; i < ac; i++)
+        {
             PmergeMe::setNum(std::string(av[i]));
+        }
+        PmergeMe::MergeMeVector();
+        PmergeMe::printResult();
     }
     catch(const std::exception& e)
     {

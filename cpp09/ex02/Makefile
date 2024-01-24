@@ -1,4 +1,4 @@
-NAME = 
+NAME = PmergeMe
 
 CXX = c++
 
