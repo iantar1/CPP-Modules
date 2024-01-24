@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:24 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/18 15:47:07 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/24 14:51:38 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ public:
 	PmergeMe&   operator=(const PmergeMe&);
 
 	static void	mergeSort(int, int);
+	static void	merge(int start, int mid, int end);
 	static void	setNum(const std::string&); 
 };
