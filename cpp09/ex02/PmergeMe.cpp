@@ -6,20 +6,22 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:14 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/24 20:16:46 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/25 17:58:23 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PmergeMe.hpp"
 
+int					PmergeMe::ArrSize;
 std::vector<int>	PmergeMe::MainArr;
-std::vector<int>	PmergeMe::SortedArr;
+
 std::vector<int>	PmergeMe::ArrMax;
 std::vector<int>	PmergeMe::ArrMin;
-int					PmergeMe::ArrSize;
+double				PmergeMe::vectTime;
+
 std::deque<int> 	PmergeMe::dequeMax;
 std::deque<int> 	PmergeMe::dequeMin;
-std::deque<int> 	PmergeMe::dequeSorted;
+double				PmergeMe::dequeTime;
 
 PmergeMe::PmergeMe()
 {
@@ -37,7 +39,6 @@ PmergeMe&   PmergeMe::operator=(const PmergeMe&)
 	return (*this);
 }
 
-
 // general methods
 
 void	PmergeMe::isValidNum(const std::string& str)
@@ -47,10 +48,8 @@ void	PmergeMe::isValidNum(const std::string& str)
 
 	if (str.size() > 10)
 		throw std::runtime_error("Eroor");
-	// if (!str.find("."))
-	// 	throw std::runtime_error("Eroor");
 	iss >> std::noskipws >> val;
-	if (!iss.eof() || iss.fail())//check 1.25.56
+	if (!iss.eof() || iss.fail())
 		throw std::runtime_error("Eroor");
 	if (val < 0 || val > INT_MAX)
 		throw std::runtime_error("Eroor");
@@ -65,8 +64,9 @@ void	PmergeMe::setNum(const std::string& str)
 	iss >> num;
 	MainArr.push_back(num);
 }
+// vector methods
 
-void	PmergeMe::printResult()
+void	PmergeMe::printResultVect()
 {
 	std::cout << "Before: ";
 	for (int i = 0; i < ArrSize; i++)
@@ -74,11 +74,9 @@ void	PmergeMe::printResult()
 	std::cout << std::endl;
 	std::cout << "After: ";
 	for (int i = 0; i < ArrSize; i++)
-		std::cout << SortedArr[i] << " ";
+		std::cout << ArrMax[i] << " ";
 	std::cout << std::endl;
 }
-
-// vector methods
 
 void    PmergeMe::mergeVect(int start, int mid, int end)
 {
@@ -95,7 +93,7 @@ void    PmergeMe::mergeVect(int start, int mid, int end)
 	k = 0;
 	for (int i = start; i <= end; i++)
 	{
-		if (j < tmp1.size() && (tmp1[j] < tmp2[k] || k >= tmp2.size()))
+		if (j < tmp1.size() && (k >= tmp2.size() || tmp1[j] < tmp2[k]))
 		{
 			ArrMax[i] = tmp1[j];
 			j++;
@@ -124,23 +122,24 @@ void	PmergeMe::mergeSortVect(int start, int end)
 
 void	PmergeMe::insertVect()
 {
-	size_t	k;
 	size_t	j;
+	size_t i;
+	size_t tmpSize;
 
-	k = 0;
 	j = 0;
-	for (int i = 0; i < ArrSize; i++)
+	for (i = 0; i < ArrMin.size(); i++)
 	{
-		if (j < ArrMax.size() && (ArrMax[j] < ArrMin[k] || k >= ArrMin.size()))
+		tmpSize = ArrMax.size();
+		for (j = 0; j < ArrMax.size(); j++)
 		{
-			SortedArr.push_back(ArrMax[j]);
-			j++;
+			if (ArrMin[i] <= ArrMax[j])
+			{
+				ArrMax.insert(ArrMax.begin() + j, ArrMin[i]);
+				break ;
+			}
 		}
-		else
-		{
-			SortedArr.push_back(ArrMin[k]);
-			k++;
-		}
+		if (j == tmpSize)
+			ArrMax.insert(ArrMax.end(), ArrMin[i]);
 	}
 }
 
@@ -158,12 +157,30 @@ void	PmergeMe::isolationVect()
 
 void	PmergeMe::MergeMeVector()
 {
+	clock_t start, end;
+
+	start = clock();
 	isolationVect();
 	mergeSortVect(0, ArrMax.size() - 1);
 	insertVect();
+	end = clock();
+	dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	dequeTime *= 1e6;
 }
 
 // Deque Methods
+
+void	PmergeMe::printResultDeque()
+{
+	std::cout << "Before: ";
+	for (int i = 0; i < ArrSize; i++)
+		std::cout << MainArr[i] << " ";
+	std::cout << std::endl;
+	std::cout << "After: ";
+	for (int i = 0; i < ArrSize; i++)
+		std::cout << dequeMax[i] << " ";
+	std::cout << std::endl;
+}
 
 void    PmergeMe::mergeDeque(int start, int mid, int end)
 {
@@ -209,23 +226,24 @@ void	PmergeMe::mergeSortDeque(int start, int end)
 
 void	PmergeMe::insertDeque()
 {
-	size_t	k;
 	size_t	j;
+	size_t i;
+	size_t tmpSize;
 
-	k = 0;
 	j = 0;
-	for (int i = 0; i < ArrSize; i++)
+	for (i = 0; i < dequeMin.size(); i++)
 	{
-		if (j < dequeMax.size() && (dequeMax[j] < dequeMin[k] || k >= dequeMin.size()))
+		tmpSize = dequeMax.size();
+		for (j = 0; j < dequeMax.size(); j++)
 		{
-			SortedArr.push_back(dequeMax[j]);
-			j++;
+			if (dequeMin[i] <= dequeMax[j])
+			{
+				dequeMax.insert(dequeMax.begin() + j, dequeMin[i]);
+				break ;
+			}
 		}
-		else
-		{
-			SortedArr.push_back(dequeMin[k]);
-			k++;
-		}
+		if (j == tmpSize)
+			dequeMax.insert(dequeMax.end(), dequeMin[i]);
 	}
 }
 
@@ -243,7 +261,24 @@ void	PmergeMe::isolationDeque()
 
 void	PmergeMe::MergeMeDeque()
 {
+	clock_t start, end;
+
+	start = clock();
 	isolationDeque();
 	mergeSortDeque(0, dequeMax.size() - 1);
 	insertDeque();
+	end = clock();
+	vectTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	vectTime *= 1e6;
+}
+
+void	PmergeMe::printTime()
+{
+	std::cout << "Time to process a range of ";
+	std::cout << ArrSize << " elements with std::vector : ";
+	std::cout << std::fixed << vectTime << " us"<< std::endl;
+
+	std::cout << "Time to process a range of ";
+	std::cout << ArrSize << " elements with std::deque : ";
+	std::cout << std::fixed << dequeTime << " us"<< std::endl;
 }

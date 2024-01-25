@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:56:13 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/24 18:12:21 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/25 17:31:02 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(int ac, char *av[])
 {
+
     if (ac < 2)
     {
         std::cerr << "Invalid number of Arguements" << std::endl;
@@ -26,7 +27,9 @@ int main(int ac, char *av[])
             PmergeMe::setNum(std::string(av[i]));
         }
         PmergeMe::MergeMeVector();
-        PmergeMe::printResult();
+        PmergeMe::MergeMeDeque();
+        PmergeMe::printResultVect();
+        PmergeMe::printTime();
     }
     catch(const std::exception& e)
     {
