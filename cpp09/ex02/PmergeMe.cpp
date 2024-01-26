@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:14 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/26 10:55:44 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/26 11:49:01 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void	PmergeMe::MergeMeVector()
 	insertVect();
 	end = clock();
 	dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-	dequeTime *= 1e6;
+	dequeTime *= (double)1e6;
 }
 
 // Deque Methods
@@ -276,9 +276,9 @@ void	PmergeMe::printTime()
 {
 	std::cout << "Time to process a range of ";
 	std::cout << ArrSize << " elements with std::vector : ";
-	std::cout << std::fixed << vectTime << " us"<< std::endl;
+	std::cout<< vectTime << " us"<< std::endl;
 
 	std::cout << "Time to process a range of ";
 	std::cout << ArrSize << " elements with std::deque : ";
-	std::cout << std::fixed << dequeTime << " us"<< std::endl;
+	std::cout<< dequeTime << " us"<< std::endl;
 }
