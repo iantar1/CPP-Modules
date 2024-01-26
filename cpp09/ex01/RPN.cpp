@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:42:34 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/16 15:20:13 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/26 10:54:28 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,20 @@ void RPN::checkError(const std::string& str)
 {
 	std::string			word;
 	std::stringstream	tmp(str);
+	bool				oprCheck;
 
+	oprCheck = false;
 	while (tmp>>word)
 	{
 		if (word.size() != 1)
-			throw std::runtime_error("error");
+			throw std::runtime_error("Error");
 		if (operations.find(word) == std::string::npos && !isdigit(static_cast<int>(word[0])))
-			throw std::runtime_error("error");
+			throw std::runtime_error("Error");
+		if (operations.find(word) != std::string::npos)
+			oprCheck = true;
 	}
+	if (oprCheck == false)
+		throw std::runtime_error("Error");
 }
 int RPN::doOperation(int a, int b, int opr)
 {
@@ -52,7 +58,7 @@ int RPN::doOperation(int a, int b, int opr)
 		break;
 	default:
 		if (b == 0)
-			throw std::runtime_error("error");
+			throw std::runtime_error("Error");
 		break;
 	}
 	return (a / b);
@@ -77,8 +83,10 @@ void RPN::calculator(const std::string& str)
 			myStack.push(doOperation(num[1], num[0], static_cast<int>(word[0])));
 		}
 		else
-			throw std::runtime_error("error");
+			throw std::runtime_error("Error");
 	}
+	if (myStack.size() > 1)
+		throw std::runtime_error("Error");
 }
 
 void RPN::ReversePolishNotation(const std::string& str)

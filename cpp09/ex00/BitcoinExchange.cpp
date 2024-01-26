@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/15 14:40:09 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/26 09:55:11 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	BitcoinExchange::getCurentYear()
 	size_t	year;
 
 	year = time(NULL);
-	//std::cout << "->>>>>>    " << static_cast<int>(year / TOYEAR) + 1970 << "   :\n";
 	return (static_cast<int>(year / TOYEAR) + 1970);
 }
 
@@ -127,7 +126,7 @@ void	BitcoinExchange::valueCheck(const std::string& str)
 		throw std::runtime_error(ErrorMes);
 	}
 	if (val > 1000)
-		throw std::runtime_error("Error: too large a number.");
+		throw std::runtime_error("Error: too large number.");
 	if (val < 0)
 		throw std::runtime_error("Error: not a positive number.");
 }
@@ -161,6 +160,7 @@ void	BitcoinExchange::errorsCheck(const std::string& str)
 		}
 	}
 }
+
 void	BitcoinExchange::fillMap(std::ifstream& fcsv)
 {
 	std::string	str;
@@ -222,10 +222,7 @@ void	BitcoinExchange::bitcoinEx(std::ifstream& inp, std::ifstream& fcsv)
 		{
 			std::getline(inp, str);
 			if (str.empty())
-			{
-				std::cerr << "Error: empty line" << std::endl;
-				continue ;
-			}
+				throw std::runtime_error("Error: empty line");
 			errorsCheck(str);
 			bitcoinValue(getDate(str), getVal(str));
 		}

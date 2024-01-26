@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:24 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/25 18:05:53 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/26 10:55:54 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@
 # include <ctime>
 # include <iomanip>
 
-// subject :
-// It is strongly advised to implement your algorithm for each container
-// and thus to avoid using a generic function.
-
 class PmergeMe
 {
 private:
 	static int				ArrSize;
-	static std::vector<int> ArrMin;
+	static std::vector<int>	ArrMin;
 
 	static std::vector<int> MainArr;
 	static std::vector<int> ArrMax;
