@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/26 09:55:11 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/27 10:42:52 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	BitcoinExchange::valideDate(const std::string& year, const std::string& mon
 		throw std::runtime_error(ErrorMes);
 	if (month_ > 12 || month_ < 1)
 		throw std::runtime_error(ErrorMes);
-	if (monthDays[month_ - 1] < day_)
+	if (monthDays[month_ - 1] < day_ || day_ < 1)
 		throw std::runtime_error(ErrorMes);	
 }
 
@@ -134,9 +134,10 @@ void	BitcoinExchange::valueCheck(const std::string& str)
 void	BitcoinExchange::errorsCheck(const std::string& str)
 {
 	std::string word;
+	int			i;
 
 	std::stringstream tmp(str);
-	for (int i = 0; tmp >> word; i++)
+	for (i = 0; tmp >> word; i++)
 	{
 		switch (i)
 		{
@@ -159,6 +160,9 @@ void	BitcoinExchange::errorsCheck(const std::string& str)
 			break;
 		}
 	}
+// when there is no value te check
+	if (i == 2)
+		throw std::runtime_error(ErrorMes);
 }
 
 void	BitcoinExchange::fillMap(std::ifstream& fcsv)
