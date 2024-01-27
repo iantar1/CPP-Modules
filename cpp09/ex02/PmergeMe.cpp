@@ -6,9 +6,11 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:55:14 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/26 11:49:01 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/26 11:53:06 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include "PmergeMe.hpp"
 
 # include "PmergeMe.hpp"
 
@@ -164,8 +166,8 @@ void	PmergeMe::MergeMeVector()
 	mergeSortVect(0, ArrMax.size() - 1);
 	insertVect();
 	end = clock();
-	dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-	dequeTime *= (double)1e6;
+	vectTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	vectTime *= 1e6;
 }
 
 // Deque Methods
@@ -268,17 +270,17 @@ void	PmergeMe::MergeMeDeque()
 	mergeSortDeque(0, dequeMax.size() - 1);
 	insertDeque();
 	end = clock();
-	vectTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-	vectTime *= 1e6;
+	dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	dequeTime *= 1e6;
 }
 
 void	PmergeMe::printTime()
 {
 	std::cout << "Time to process a range of ";
 	std::cout << ArrSize << " elements with std::vector : ";
-	std::cout<< vectTime << " us"<< std::endl;
+	std::cout << std::fixed << vectTime << " us"<< std::endl;
 
 	std::cout << "Time to process a range of ";
 	std::cout << ArrSize << " elements with std::deque : ";
-	std::cout<< dequeTime << " us"<< std::endl;
+	std::cout << std::fixed << dequeTime << " us"<< std::endl;
 }
