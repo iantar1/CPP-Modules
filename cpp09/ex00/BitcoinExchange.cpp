@@ -6,7 +6,7 @@
 /*   By: iantar <iantar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:24:41 by iantar            #+#    #+#             */
-/*   Updated: 2024/01/27 10:42:52 by iantar           ###   ########.fr       */
+/*   Updated: 2024/01/27 12:08:21 by iantar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,8 +160,8 @@ void	BitcoinExchange::errorsCheck(const std::string& str)
 			break;
 		}
 	}
-// when there is no value te check
-	if (i == 2)
+	ErrorMes = "Error: bad input => " + word;
+	if (i != 3)
 		throw std::runtime_error(ErrorMes);
 }
 
