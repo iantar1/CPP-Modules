@@ -20,7 +20,8 @@ By addressing these limitations and providing additional features, C++ aimed to 
 
 **CPP00:** 
 
-* Namespaces:
+* classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuf.
+Namespaces:
     Namespaces provide a method for preventing name conflicts in large projects.
 
 **CPP01:**
