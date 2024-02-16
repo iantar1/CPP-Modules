@@ -24,29 +24,29 @@ By addressing these limitations and providing additional features, C++ aimed to 
     Namespaces provide a method for preventing name conflicts in large projects.
 
 **CPP01:**
-    Memory allocation, pointers to members, references, switch statement.
+* Memory allocation, pointers to members, references, switch statement.
 
 **CPP02:**
-    Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form.
+* Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form.
 
 **CPP03:**
-    Inheritance
+* Inheritance
 
 **CPP04:**
-    Subtype polymorphism, abstract classes, interfaces.
+* Subtype polymorphism, abstract classes, interfaces.
 
 **CPP05:**
-     Exceptions
+* Exceptions
 
 **CPP06:**
-    casts
+* casts
 
 **CPP07:**
-    templates
+* templates
 
 **CPP08:**
-    Templated containers, iterators, algorithms.
+* Templated containers, iterators, algorithms.
     
 **CPP09:**
-    STL.
+* STL.
 
