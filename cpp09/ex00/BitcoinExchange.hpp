@@ -36,11 +36,13 @@ private:
 	static const std::string	title[3];
 	static std::string			ErrorMes;
 	static const int			monthDays[12];
-	BitcoinExchange();
 
-public:
+// orthodox canonial form (Coplien's form)
+	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange&);
 	BitcoinExchange&    operator=(const BitcoinExchange&);
+
+public:
 	~BitcoinExchange();
 
 	static void	bitcoinEx(std::ifstream&, std::ifstream&);
